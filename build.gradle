@@ -1,0 +1,56 @@
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+    id 'jacoco'
+}
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    jcenter()
+}
+
+dependencies {
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+
+application {
+    // Define the main class for the application.
+    mainClass = 'Main'
+}
+
+
+// Test Script
+test {
+    jacoco {
+        destinationFile = file("$buildDir/jacoco/jacoco.exec")
+    }
+    useJUnitPlatform()
+    ignoreFailures(false)
+    finalizedBy 'jacocoTestReport'
+}
+
+
+jacoco {
+    // JaCoCo 버전
+    toolVersion = '0.8.5'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled(true)
+    }
+
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'SMA_Test_Project.App'
+    }
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
