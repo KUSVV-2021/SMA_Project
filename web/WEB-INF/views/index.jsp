@@ -1,16 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: s_com8599
-  Date: 2021-05-03
-  Time: 오후 12:43
+  User: jeondohyeon
+  Date: 21. 5. 7.
+  Time: 오전 1:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Hello</title>
+</head>
+<body>
+${msg}
+</body>
 </html>
+
