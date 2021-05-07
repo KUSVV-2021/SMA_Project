@@ -13,8 +13,11 @@
 </head>
 <body>
     <div class="main_view">
-        결제 카드를 삽입해주세요<br>
-        <input onclick="location.href='../window3'" class="input_code" type="text" placeholder="선결제 코드 입력"/>
+        <img class="loading" src="/resources/img/Spinner-1s-200px.gif"/><br>
+        <div class="waiting">
+            잠시만 기다려 주세요
+        </div>
     </div>
+    <script src="/resources/js/window_7.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+.choice_menu_text {
+    margin: 20px auto;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border: solid 2px black;
+    padding: 20px;
+}
+
+.main_view button {
+    margin-top: 10px;
+}

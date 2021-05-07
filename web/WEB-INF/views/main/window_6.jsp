@@ -10,11 +10,16 @@
 <head>
     <title>${Title}</title>
     <link href="/resources/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/base6.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="main_view">
-        결제 카드를 삽입해주세요<br>
-        <input onclick="location.href='../window3'" class="input_code" type="text" placeholder="선결제 코드 입력"/>
+        <div class="location_dvm">
+            자판기 위치
+        </div>
+        <div class="pre_code">
+            선결제 코드
+        </div>
     </div>
 </body>
 </html>

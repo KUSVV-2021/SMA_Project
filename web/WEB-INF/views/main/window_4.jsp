@@ -10,11 +10,12 @@
 <head>
     <title>${Title}</title>
     <link href="/resources/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/base4.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="main_view">
-        결제 카드를 삽입해주세요<br>
-        <input onclick="location.href='../window3'" class="input_code" type="text" placeholder="선결제 코드 입력"/>
+        <div class="choice_menu_text">음료가 ㅇㅇ에 준비 되어 있습니다.</div>
+        <br><button onclick="location.href='../window7'">선결제</button><button onclick="location.href='../window2'">취소</button>
     </div>
 </body>
 </html>

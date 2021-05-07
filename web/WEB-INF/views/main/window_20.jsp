@@ -13,8 +13,12 @@
 </head>
 <body>
     <div class="main_view">
-        결제 카드를 삽입해주세요<br>
-        <input onclick="location.href='../window3'" class="input_code" type="text" placeholder="선결제 코드 입력"/>
+        <div class="number">
+            입력하신 번호는<br>
+            ${Number} 입니다.
+        </div>
+        <br><button onclick="location.href='../window7'">확인</button><button onclick="location.href='../window${PageNum}'">취소</button>
     </div>
+    <script src="/resources/js/window_7.js"></script>
 </body>
 </html>
