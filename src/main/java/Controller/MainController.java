@@ -12,4 +12,19 @@ public class MainController {
         model.addAttribute("msg", "Hello world");
         return "index";
     }
+    @RequestMapping(value = "/window1")
+    public String windowFirst(Model model) {
+        model.addAttribute("Title", "Window-1");
+        return "main/window_1";
+    }
+    @RequestMapping(value = "/window2")
+    public String windowSecond(Model model) {
+        model.addAttribute("Title", "Window-2");
+        return "main/window_2";
+    }
+    @RequestMapping(value = "/window3")
+    public String windowThird(Model model) {
+        model.addAttribute("Title", "Window-3");
+        return "main/window_1";
+    }
 }
