@@ -15,7 +15,7 @@
 ## 1. Git Clone
 
 - 개발하고자 하는 디렉토리에 Git Clone 해줍니다.  
-  `git clone https://github.com/KUSVV-2021/SMA_Proeject.git`
+  `git clone https://github.com/KUSVV-2021/SMA_Project.git`
   - 자체적으로 사용하고 있는 GitHub Desktop과 같은 프로그램을 사용하셔도 무관합니다.
 
 <br />
