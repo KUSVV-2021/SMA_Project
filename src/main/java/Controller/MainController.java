@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Random;
+
 @Controller
 public class MainController {
 
@@ -40,6 +42,10 @@ public class MainController {
     @RequestMapping(value = "/window6")
     public String window6th(Model model) {
         model.addAttribute("Title", "Window-6");
+        String code = "";
+        Random random = new Random();
+        code = Integer.toString(random.nextInt() * 100000, 16);
+        model.addAttribute("RandomCode", code);
         return "main/window_6";
     }
     @RequestMapping(value = "/window7")
@@ -113,5 +119,10 @@ public class MainController {
         model.addAttribute("PageNum", PageNum);
         model.addAttribute("Number", Number);
         return "main/window_20";
+    }
+    @RequestMapping(value = "/window23")
+    public String window23th(Model model) {
+        model.addAttribute("Title", "Window-23");
+        return "main/window_23";
     }
 }

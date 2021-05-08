@@ -18,7 +18,7 @@
             자판기 위치
         </div>
         <div class="pre_code">
-            선결제 코드
+            선결제 코드 : ${RandomCode}
         </div>
     </div>
 </body>
