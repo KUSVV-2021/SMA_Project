@@ -10,12 +10,19 @@
 <head>
     <title>${Title}</title>
     <link href="/resources/css/base.css" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link href="/resources/css/base12.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="main_view">
         <table class="menu_ui">
-            <tr><td colspan="3">DVM NAME</td></tr>
+            <tr>
+                <td colspan="3">
+                    <button onclick="location.href='../window13'" class="admin_btn">추가</button>
+                    <button onclick="location.href='../window14'" class="admin_btn">삭제</button>
+                    <button onclick="location.href='../window17'" class="admin_btn">판매 내역 확인</button>
+                    <button onclick="location.href='../window1'" class="admin_btn">x</button>
+                </td>
+            </tr>
             <tr><td><img src="/resources/img/pepsi.png"></td><td><img src="/resources/img/coke.png"></td><td><img src="/resources/img/pepsi.png"></td></tr>
             <tr><td><img src="/resources/img/coke.png"></td><td><img src="/resources/img/pepsi.png"></td><td><img src="/resources/img/coke.png"></td></tr>
             <tr><td><img src="/resources/img/pepsi.png"></td><td><img src="/resources/img/coke.png"></td><td><img src="/resources/img/pepsi.png"></td></tr>
@@ -30,6 +37,6 @@
             </tr>
         </table>
     </div>
-    <script src="/resources/js/window_2.js"></script>
+    <script src="/resources/js/window_12.js"></script>
 </body>
 </html>
