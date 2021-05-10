@@ -10,16 +10,19 @@
 <head>
     <title>${Title}</title>
     <link href="/resources/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/base16.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
     <div class="main_view">
         <div class="img">
-            <img id="img_result" src="${Drink}.png">
-            <br>현재 가격 : <input type="number" id="price">
-            <br>현재 재고 : <input type="number" id="left">
+            <img id="img_result" src="${Drink}">
+            <br>현재 가격 : <input type="number" id="price" onclick="openKeyPad('price')">
+            <br>현재 재고 : <input type="number" id="left" onclick="openKeyPad('left')">
             <br><br><br>
             <button onclick="location.href = '../window12'">확인</button><button onclick="location.href = '../window12'">취소</button>
         </div>
     </div>
+    <script src="/resources/js/window_16.js"></script>
 </body>
 </html>

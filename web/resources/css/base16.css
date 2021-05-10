@@ -1,18 +1,9 @@
-.phone_input {
-    margin: 20px auto;
-    text-align: center;
-    vertical-align: middle;
-    display: inline-block;
-    border: solid 2px black;
-    padding: 20px;
-}
-
 .main_view button {
     margin-top: 10px;
 }
 
 .main_view .key_pad {
-    top: 120px;
+    top: 260px;
     left: 48%;
     position: absolute;
     background: white;

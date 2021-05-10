@@ -10,6 +10,7 @@
 <head>
     <title>${Title}</title>
     <link href="/resources/css/base.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
     <div class="main_view">

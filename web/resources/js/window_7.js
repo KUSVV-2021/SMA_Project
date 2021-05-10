@@ -16,7 +16,7 @@ function getParam(sname) {
 }
 
 setTimeout(function () {
-    let page = pagearr[Math.round(Math.random()*2)];
+    let page = pagearr[Math.floor(Math.random()*2)];
     console.log(page);
     location.href = '../window'+getParam('Page');
 } , 3000);

@@ -95,8 +95,9 @@ public class MainController {
         return "main/window_15";
     }
     @RequestMapping(value = "/window16")
-    public String window16th(Model model) {
+    public String window16th(Model model, String Drink) {
         model.addAttribute("Title", "Window-16");
+        model.addAttribute("Drink", Drink);
         return "main/window_16";
     }
     @RequestMapping(value = "/window17")
