@@ -18,7 +18,7 @@
         <table class="menu_ui">
             <tr>
                 <td colspan="3">
-                    <button onclick="location.href='../window13'" class="admin_btn">추가</button>
+                    <button onclick="addButton()" class="admin_btn">추가</button>
                     <button onclick="location.href='../window14'" class="admin_btn">삭제</button>
                     <button onclick="location.href='../window17'" class="admin_btn">판매 내역 확인</button>
                     <button onclick="location.href='../window1'" class="admin_btn">x</button>
