@@ -41,7 +41,9 @@ function openKeyPad(str) {
     tr.appendChild(td);
     td = document.createElement("td");
     td.innerText = "delete";
-    td.colSpan = 2;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "enter";
     tr.appendChild(td);
     table.appendChild(tr);
     div.appendChild(table);
@@ -70,6 +72,13 @@ function clickPad(e, str) {
     const input = document.getElementById(str);
     if ( e.target.innerText == "delete" ) {
         input.value = input.value.slice(0, -1)
+    } else if ( e.target.innerText == "enter" ) {
+        if ( input.value*1 < 0 ) {
+            alert("잘못된 입력입니다.");
+        } else {
+            const div = document.getElementsByClassName("key_pad")[0];
+            div.remove();
+        }
     } else {
         input.value += e.target.innerText;
     }
