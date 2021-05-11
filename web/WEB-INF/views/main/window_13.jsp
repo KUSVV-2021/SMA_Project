@@ -16,8 +16,9 @@
 <body>
     <div class="main_view">
         <div class="img">
-            이미지
+            <%--이미지
             <br><img id="img_result"><br><input type="file" id="img" name="img" accept="image/png, image/jpeg">
+            --%>
             <br>상품명 : <input type="text" id="name">
             <br>상품 가격 : <input type="number" id="price">
             <br><br><br>

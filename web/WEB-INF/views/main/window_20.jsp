@@ -18,8 +18,8 @@
             입력하신 번호는<br>
             ${Number} 입니다.
         </div>
-        <br><button onclick="location.href='../window7'">확인</button><button onclick="location.href='../window${PageNum}'">취소</button>
+        <br><button onclick="location.href='../window7&PageNum=20'">확인</button><button onclick="location.href='../window${PageNum}'">취소</button>
     </div>
-    <script src="/resources/js/window_7.js"></script>
+    <script src="/resources/js/window_20.js"></script>
 </body>
 </html>
