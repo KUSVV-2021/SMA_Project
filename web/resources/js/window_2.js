@@ -1,8 +1,12 @@
-const drink = [{key:"coke", value:2},
-    {key:"pepsi", value:0}];
+const drink = new Map([
+    ["coke", 2],
+    ["pepsi", 0],
+])
 
 $('.menu_ui img').click( function () {
-    if (drink.get(this.src.split('.')[0].split('/')[1]) > 0) {
+    let str = this.src.split('.')[0].split('/');
+    str = str[str.length-1];
+    if (drink.get(str) > 0) {
         location.href = '../window8';
     } else {
         //db 확인

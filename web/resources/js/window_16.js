@@ -48,24 +48,8 @@ function openKeyPad(str) {
     table.appendChild(tr);
     div.appendChild(table);
     const main = document.getElementsByClassName("main_view")[0];
-    main.onclick = (e) => removePad(e);
     main.appendChild(div);
     $('.key_pad td').click( (e) => clickPad(e, str) );
-}
-
-let chk = false;
-
-function removePad(e) {
-    if ( !chk ) chk = true;
-    else {
-        const div = document.getElementsByClassName("key_pad")[0];
-        const x = e.pageX;
-        const y = e.pageY;
-        if ( !( x >= div.offsetLeft && x <= ( div.offsetLeft + div.offsetWidth ) && y >= div.offsetTop && y <= ( div.offsetTop + div.offsetHeight ) ) ) {
-            div.remove();
-            chk = false;
-        }
-    }
 }
 
 function clickPad(e, str) {
@@ -73,7 +57,7 @@ function clickPad(e, str) {
     if ( e.target.innerText == "delete" ) {
         input.value = input.value.slice(0, -1)
     } else if ( e.target.innerText == "enter" ) {
-        if ( input.value*1 < 0 ) {
+        if ( input.value*1 < 1 ) {
             alert("잘못된 입력입니다.");
         } else {
             const div = document.getElementsByClassName("key_pad")[0];
@@ -82,4 +66,9 @@ function clickPad(e, str) {
     } else {
         input.value += e.target.innerText;
     }
+}
+
+function editItem() {
+    alert("변경되었습니다.");
+    location.href = '../window12';
 }

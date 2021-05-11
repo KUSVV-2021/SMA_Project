@@ -41,35 +41,30 @@ function openKeyPad() {
     tr.appendChild(td);
     td = document.createElement("td");
     td.innerText = "delete";
-    td.colSpan = 2;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "enter";
     tr.appendChild(td);
     table.appendChild(tr);
     div.appendChild(table);
     const main = document.getElementsByClassName("main_view")[0];
-    main.onclick = (e) => removePad(e);
     main.appendChild(div);
     $('.key_pad td').click( (e) => clickPad(e) );
 }
 
 let chk = false;
 
-function removePad(e) {
-    if ( !chk ) chk = true;
-    else {
-        const div = document.getElementsByClassName("key_pad")[0];
-        const x = e.pageX;
-        const y = e.pageY;
-        if ( !( x >= div.offsetLeft && x <= ( div.offsetLeft + div.offsetWidth ) && y >= div.offsetTop && y <= ( div.offsetTop + div.offsetHeight ) ) ) {
-            div.remove();
-            chk = false;
-        }
-    }
+function removePad() {
+    const div = document.getElementsByClassName("key_pad")[0];
+    div.remove();
 }
 
 function clickPad(e) {
     const input = document.getElementById("phone");
     if ( e.target.innerText == "delete" ) {
         input.value = input.value.slice(0, -1)
+    } else if ( e.target.innerText == "enter" ) {
+        removePad();
     } else {
         input.value += e.target.innerText;
     }

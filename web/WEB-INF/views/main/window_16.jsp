@@ -20,7 +20,7 @@
             <br>현재 가격 : <input type="number" id="price" onclick="openKeyPad('price')">
             <br>현재 재고 : <input type="number" id="left" onclick="openKeyPad('left')">
             <br><br><br>
-            <button onclick="location.href = '../window12'">확인</button><button onclick="location.href = '../window12'">취소</button>
+            <button onclick="editItem()">확인</button><button onclick="location.href = '../window12'">취소</button>
         </div>
     </div>
     <script src="/resources/js/window_16.js"></script>

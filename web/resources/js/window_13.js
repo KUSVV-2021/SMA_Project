@@ -7,3 +7,8 @@ function handleFiles() {
     const img = document.getElementById("img_result");
     img.src = window.URL.createObjectURL(fileList[0]);
 }
+
+function addItem() {
+    alert("추가 완료 되었습니다.");
+    location.href = '../window12';
+}

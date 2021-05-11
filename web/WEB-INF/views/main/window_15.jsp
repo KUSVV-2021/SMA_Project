@@ -19,8 +19,9 @@
             <img id="img_result" src="${Drink}">
             <br>ㅇㅇ상품을 삭제하시겠습니까?
             <br><br><br>
-            <button onclick="location.href = '../window12'">확인</button><button onclick="location.href = '../window14'">취소</button>
+            <button onclick="removeItem()">확인</button><button onclick="location.href = '../window14'">취소</button>
         </div>
     </div>
+<script src="/resources/js/window_15.js"></script>
 </body>
 </html>
