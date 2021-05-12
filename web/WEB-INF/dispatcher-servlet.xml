@@ -12,6 +12,7 @@
 
     <!-- Annotation 활성화 -->
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/resources/**" location="/resources/" />
     <!-- Component 패키지 지정 -->
     <!--suppress SpringXmlModelInspection -->
     <context:component-scan base-package="Controller"/>
