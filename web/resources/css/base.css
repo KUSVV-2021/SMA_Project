@@ -38,3 +38,7 @@ div {
     vertical-align: middle;
     text-align: center;
 }
+
+table{
+    margin: 10px auto;
+}
