@@ -1,0 +1,29 @@
+.menu_ui .drink{
+    display: table-cell;
+    margin: 10px;
+    vertical-align: middle;
+    background-color: #C9FFFF;
+    border-radius: 10px;
+    height: 70px;
+    width: 100px;
+}
+
+.menu_ui td {
+    text-align: center;
+    padding: 10px;
+}
+
+.menu_ui {
+    margin: 10px auto;
+    border: solid 1px #A5A5A5;
+}
+
+.menu_ui .name {
+    border-bottom: solid 1px #A5A5A5;
+    font-weight: bold;
+}
+
+.round_btn {
+    border: solid 2px #89FFFF;
+    background-color: white;
+}
