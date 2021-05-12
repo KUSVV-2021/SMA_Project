@@ -35,6 +35,8 @@
         </table>
     </div>
     <span style="display: none" id="Data">${Data}</span>
+    <span style="display: none" id="Buy">${Buy}</span>
+    <span style="display: none" id="Other">${Other}</span>
     <script src="/resources/js/window_2.js"></script>
 </body>
 </html>

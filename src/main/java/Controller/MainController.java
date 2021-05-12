@@ -25,8 +25,10 @@ public class MainController {
         return "main/window_3";
     }
     @RequestMapping(value = "/window4")
-    public String window4th(Model model) {
+    public String window4th(Model model, String LONGITUDE, String LATITUDE) {
         model.addAttribute("Title", "Window-4");
+        model.addAttribute("LO", LONGITUDE);
+        model.addAttribute("LA", LATITUDE);
         return "main/window_4";
     }
     @RequestMapping(value = "/window5")
@@ -43,15 +45,18 @@ public class MainController {
         model.addAttribute("RandomCode", code);
         return "main/window_6";
     }
+
+    @RequestMapping(value = "/window8")
+    public String window8th(Model model, String Drink) {
+        model.addAttribute("Title", "Window-8");
+        model.addAttribute("Drink", Drink);
+        return "main/window_8";
+    }
+
     @RequestMapping(value = "/window7")
     public String window7th(Model model) {
         model.addAttribute("Title", "Window-7");
         return "main/window_7";
-    }
-    @RequestMapping(value = "/window8")
-    public String window8th(Model model) {
-        model.addAttribute("Title", "Window-8");
-        return "main/window_8";
     }
     @RequestMapping(value = "/window12")
     public String window12th(Model model) {

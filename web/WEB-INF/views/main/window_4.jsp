@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="main_view">
-        <div class="choice_menu_text">음료가 ㅇㅇ에 준비 되어 있습니다.</div>
+        <div class="choice_menu_text">음료가 ${LO}, ${LA}에 준비 되어 있습니다.</div>
         <br><button onclick="location.href='../window6'">선결제</button><button onclick="location.href='../window2'">취소</button>
     </div>
 </body>
