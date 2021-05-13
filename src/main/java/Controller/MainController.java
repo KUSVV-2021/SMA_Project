@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Random;
 
+import static java.lang.Math.abs;
+
 @Controller
 public class MainController {
 
@@ -41,7 +43,7 @@ public class MainController {
         model.addAttribute("Title", "Window-6");
         String code = "";
         Random random = new Random();
-        code = Integer.toString(random.nextInt() * 100000, 16);
+        code = Integer.toString(random.nextInt() * 100000 , 16).replaceAll("-", "");
         model.addAttribute("RandomCode", code);
         return "main/window_6";
     }

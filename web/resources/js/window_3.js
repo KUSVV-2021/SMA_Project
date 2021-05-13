@@ -84,7 +84,6 @@ function clickPad(e) {
         inputC.value = inputC.value.slice(0, -1)
     } else if ( e.target.innerText == "enter" ) {
         removePad();
-        checkNextPage();
     } else {
         inputC.value += e.target.innerText;
     }

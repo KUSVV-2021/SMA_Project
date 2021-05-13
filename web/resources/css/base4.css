@@ -10,3 +10,7 @@
 .main_view button {
     margin-top: 10px;
 }
+#map {
+    height: 300px;
+    width: 400px;
+}

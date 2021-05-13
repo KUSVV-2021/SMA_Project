@@ -8,4 +8,4 @@ if (ls == null || ls == "" || ls == 0) {
 
 setTimeout(function () {
     location.href = '../window2?INDEX='+ls;
-} , 10000);
+} , 5000);
