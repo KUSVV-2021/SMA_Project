@@ -1,14 +1,10 @@
 package Controller;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
@@ -20,17 +16,17 @@ import java.util.Map;
 public class DrinkListController {
 
     @RequestMapping(value = "/window2")
-    public String windowSecond(Model model) throws IOException, ParseException {
+    public String windowSecond(Model model, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
-        model.addAttribute("Data", getDrinkList());
+        model.addAttribute("Data", getDrinkList(INDEX));
         return "main/window_2";
     }
 
-    String getDrinkList() throws IOException {
+    String getDrinkList(int INDEX) throws IOException {
         URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("INDEX", 1);
+        params.put("INDEX", INDEX);
 
         StringBuilder postData = new StringBuilder();
         for(Map.Entry<String,Object> param : params.entrySet()) {
@@ -41,7 +37,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:9080/MainProject/drink/getDrinkList");
+        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkList");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -64,7 +60,7 @@ public class DrinkListController {
     @RequestMapping(value = "/window2/buyDrink")
     public String buyDrink(Model model, int SEQ, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
-        model.addAttribute("Data", getDrinkList());
+        model.addAttribute("Data", getDrinkList(INDEX));
         model.addAttribute("Buy", buyDrink(SEQ, INDEX));
         return "main/window_2";
     }
@@ -85,7 +81,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:9080/MainProject/drink/buyDrink");
+        obj = new URL("http://localhost:8080/MainProject/drink/buyDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -108,7 +104,7 @@ public class DrinkListController {
     @RequestMapping(value = "/window2/getDrinkInfoFromOtherDVM")
     public String buyDrink(Model model, String D_NAME, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
-        model.addAttribute("Data", getDrinkList());
+        model.addAttribute("Data", getDrinkList(INDEX));
         model.addAttribute("Buy", getDrinkInfoFromOtherDVM(D_NAME, INDEX));
         return "main/window_2";
     }
@@ -129,7 +125,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:9080/MainProject/drink/getDrinkInfoFromOtherDVM");
+        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkInfoFromOtherDVM");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

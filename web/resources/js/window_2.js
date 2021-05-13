@@ -2,6 +2,13 @@
     ["coke", 2],
     ["pepsi", 0],
 ])*/
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
 
 var obj = null;
 $('.menu_ui .drink').click( function () {
@@ -19,11 +26,11 @@ $('.menu_ui .drink').click( function () {
     }
     if (o != null) {
         console.log(o.NAME+":"+o.STOCK);
-        location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+1;
+        location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+ls;
     } else {
         //db 확인
         //console.log(o.NAME+":"+o.STOCK);
-        location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+1;
+        location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+ls;
         //let check = true;
         /*var xhr = new XMLHttpRequest();
         var yourUrl = "http://localhost:9080/MainProject/drink/getDrinkInfoFromOtherDVM";

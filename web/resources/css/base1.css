@@ -10,7 +10,23 @@
     border: solid 2px black;
 }
 
+.main_view .c_key_pad {
+    top: 160px;
+    left: 48%;
+    position: absolute;
+    background: white;
+    border: solid 2px black;
+}
+
 .main_view .key_pad td{
+    width: 33%;
+    text-align: center;
+    vertical-align: middle;
+    transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+}
+
+.main_view .c_key_pad td{
     width: 33%;
     text-align: center;
     vertical-align: middle;
@@ -25,6 +41,17 @@
 }
 
 .main_view .key_pad td:active{
+    transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    background-color: blue;
+}
+.main_view .c_key_pad td:hover{
+    transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+    background-color: lightblue;
+}
+
+.main_view .c_key_pad td:active{
     transition: background-color 0.5s;
     -webkit-transition: background-color 0.5s;
     background-color: blue;
