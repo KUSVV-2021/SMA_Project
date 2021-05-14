@@ -28,7 +28,7 @@ function initMap() {
 window.onload = function () {
     /*const LO = document.getElementById("LO").innerHTML;
     const LA = document.getElementById("LA").innerHTML;
-    //let check = true;
+    let check = true;
     var xhr = new XMLHttpRequest();
     var yourUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+LO+","+LA+"&key=AIzaSyAEGJ5Q9a-TYjOy_n-UuJPf5fwuO3Ai4j8";
     xhr.open("POST", yourUrl, false);

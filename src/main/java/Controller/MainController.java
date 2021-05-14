@@ -99,4 +99,10 @@ public class MainController {
         model.addAttribute("Number", Number);
         return "main/window_20";
     }
+    @RequestMapping(value = "/payment")
+    public String payment(Model model, int Price) {
+        model.addAttribute("Title", "Price");
+        model.addAttribute("Price", Price);
+        return "main/payment";
+    }
 }
