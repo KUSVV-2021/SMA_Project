@@ -46,7 +46,7 @@ public class DrinkListController {
         con.getOutputStream().write(postDataBytes);
 
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), "UTF-8"));
+                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
         StringBuffer response = new StringBuffer();
         while((inputLine = in.readLine()) != null){
@@ -102,10 +102,10 @@ public class DrinkListController {
     }
 
     @RequestMapping(value = "/window2/getDrinkInfoFromOtherDVM")
-    public String buyDrink(Model model, String D_NAME, int INDEX) throws IOException, ParseException {
+    public String getDrinkInfoFromOtherDVM(Model model, String D_NAME, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
         model.addAttribute("Data", getDrinkList(INDEX));
-        model.addAttribute("Buy", getDrinkInfoFromOtherDVM(D_NAME, INDEX));
+        model.addAttribute("Other", getDrinkInfoFromOtherDVM(D_NAME, INDEX));
         return "main/window_2";
     }
 
@@ -124,8 +124,9 @@ public class DrinkListController {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+        System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkInfoFromOtherDVM");
+        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkInfoFromOtherDVM?INDEX"+INDEX+"&D_NAME="+URLEncoder.encode(D_NAME, "UTF-8"));
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

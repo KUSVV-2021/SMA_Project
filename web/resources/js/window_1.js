@@ -7,6 +7,7 @@ if (ls == null || ls == "" || ls == 0) {
 }
 
 window.onkeydown = function (e) {
+    ls = localStorage.getItem("IDX_DVM");
     if (e.code == 'KeyC') location.href='../window2?INDEX='+ls;
 }
 

@@ -78,19 +78,25 @@ window.onload = function () {
         this.classList.add("active");
     });
 
+    var Other = document.getElementById("Other");
+    try {
+        Other = JSON.parse(Other.innerHTML).R;
+        console.log(Other);
+        location.href = '../window4?LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE;
+        return;
+    }catch (e) {
+        if (Other.innerHTML.includes("<"))
+            alert("죄송합니다.\n모든 자판기에 재고가 존재하지 않습니다.\n빠른 시일내에 재고를 확보하도록 하겠습니다.");
+    }
+
     var Buy = document.getElementById("Buy");
     try {
         Buy = JSON.parse(Buy.innerHTML).R;
-        location.href = '../window8?Drink='+Buy.NAME;
+        if (Buy.NAME!="undefined"){
+            location.href = '../window8?Drink='+Buy.NAME;
+        }
+        return;
     }catch (e) { console.log(1);}
 
-    var Other = document.getElementById("Other");
-    try {
-        Other = JSON.parse(Buy.innerHTML).R;
-        location.href = '../window4?LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE;
-    }catch (e) {
-        if (Buy.innerHTML.indexOf("<")>=0)
-            alert("죄송합니다.\n모든 자판기에 재고가 존재하지 않습니다.\n빠른 시일내에 재고를 확보하도록 하겠습니다.");
-    }
 }
 
