@@ -39,6 +39,7 @@ $('.menu_ui .drink').click( function () {
         location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+ls;
     }
 } );
+
 window.onload = function () {
     var item = document.getElementById("Data");
     obj = JSON.parse(item.innerHTML);
