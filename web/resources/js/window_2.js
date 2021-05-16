@@ -10,6 +10,13 @@ if (ls == null || ls == "" || ls == 0) {
     ls = ls*1;
 }
 
+window.onkeydown = function (e) {
+    if (e.code == 'KeyR') {
+        alert("카드가 제거 되었습니다.");
+        location.href='../window1';
+    }
+}
+
 var obj = null;
 $('.menu_ui .drink').click( function () {
     /*var item = document.getElementById("Data");
@@ -26,23 +33,10 @@ $('.menu_ui .drink').click( function () {
     }
     if (o != null) {
         console.log(o.NAME+":"+o.STOCK);
-        location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+ls;
+        if ( confirm(o.NAME+"을(를) 구매 하시겠습니까?") )
+            location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+ls;
     } else {
-        //db 확인
-        //console.log(o.NAME+":"+o.STOCK);
         location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+ls;
-        //let check = true;
-        /*var xhr = new XMLHttpRequest();
-        var yourUrl = "http://localhost:9080/MainProject/drink/getDrinkInfoFromOtherDVM";
-        xhr.open("POST", yourUrl, false);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            D_NAME: str,
-            INDEX: 1
-        }));
-        try{
-            yourUrl = JSON.parse(xhr.responseText);
-        } catch (e) { check = false; }*/
     }
 } );
 window.onload = function () {
@@ -80,9 +74,9 @@ window.onload = function () {
 
     var Other = document.getElementById("Other");
     try {
-        Other = JSON.parse(Other.innerHTML).R;
+        Other = JSON.parse(Other.innerHTML);
         console.log(Other);
-        location.href = '../window4?LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE;
+        location.href = '../window4?DVM_SEQ='+Other.DVM_SEQ+'LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE+'&D_NAME='+Other.D_NAME;
         return;
     }catch (e) {
         if (Other.innerHTML.includes("<"))
@@ -91,7 +85,7 @@ window.onload = function () {
 
     var Buy = document.getElementById("Buy");
     try {
-        Buy = JSON.parse(Buy.innerHTML).R;
+        Buy = JSON.parse(Buy.innerHTML);
         if (Buy.NAME!="undefined"){
             location.href = '../window8?Drink='+Buy.NAME;
         }

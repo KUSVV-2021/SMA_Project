@@ -6,6 +6,13 @@ if (ls == null || ls == "" || ls == 0) {
     ls = ls*1;
 }
 
+window.onkeydown = function (e) {
+    if (e.code == 'KeyR') {
+        alert("카드가 제거 되었습니다.");
+        location.href='../window1';
+    }
+}
+
 function moveTo2(){
     location.href='../window2?INDEX='+ls;
 }
@@ -39,4 +46,25 @@ window.onload = function () {
     } catch (e) { check = false; }
     document.getElementById("results").innerHTML = yourUrl.results.formatted_address;*/
     initMap();
+}
+
+function getParam(sname) {
+    let params = location.search.substr(location.search.indexOf("?") + 1);
+    let sval = "";
+    params = params.split("&");
+    let temp;
+    for (let i = 0; i < params.length; i++) {
+        temp = params[i].split("=");
+        if ([temp[0]] == sname) {
+            sval = temp[1];
+        }
+    }
+    return sval;
+}
+
+function prePayment() {
+    if (Math.floor(Math.random()*2) == 1)
+        location.href='../window6?INDEX='+getParam("DVN_SEQ")+'&D_NAME='+getParam("D_NAME");
+    else
+        alert("결제에 실패하였습니다.");
 }

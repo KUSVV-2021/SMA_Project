@@ -16,8 +16,7 @@
 <body>
     <div class="main_view">
         <div class="img">
-            <img id="img_result" src="${Drink}">
-            <br>ㅇㅇ상품을 삭제하시겠습니까?
+            <br><span id="Drink">${Drink}</span>상품을 삭제하시겠습니까?
             <br><br><br>
             <button onclick="removeItem()">확인</button><button onclick="location.href = '../window14'">취소</button>
         </div>

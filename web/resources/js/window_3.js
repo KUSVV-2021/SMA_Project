@@ -1,5 +1,16 @@
-function checkNextPage() {
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
+
+function inputPrecode() {
     let code = document.getElementsByClassName('input_code')[0].value;
+
+    location.href = "/window3/answerPrecodeInfo?INDEX="+ls+"&CODE="+code;
+/*
     let randS = [8, 19, 22];
     let randomN = Math.floor(Math.random()*3);
     console.log(randS[randomN]);
@@ -14,7 +25,7 @@ function checkNextPage() {
         case 22:
             alert("이 기기에서는 해당 선결제 코드를 사용할 수 없습니다.");
             break;
-    }
+    }*/
 }
 
 
@@ -86,5 +97,27 @@ function clickPad(e) {
         removePad();
     } else {
         inputC.value += e.target.innerText;
+    }
+}
+
+window.onload = function () {
+    var Info = document.getElementById("Info");
+    if ( Info.innerHTML != "" ) {
+        Info = JSON.parse(Info.innerHTML);
+        switch (Info.R.RESULT){
+            case 3:
+                let str = "../window8?Drink=" + Info.R.D_NAME ;
+                location.href=str;
+                break;
+            case 2:
+                alert("재고가 없거나 이미 쓴 코드입니다.");
+                break;
+            case 1:
+                alert("이 기기에서는 해당 선결제 코드를 사용할 수 없습니다.");
+                break;
+            case 0:
+                alert("잘못된 입력입니다.");
+                break;
+        }
     }
 }

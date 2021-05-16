@@ -15,12 +15,12 @@
 </head>
 <body>
     <div class="main_view">
-        <div class="img">
-            <img id="img_result" src="${Drink}">
-            <br>현재 가격 : <input type="number" id="price" onclick="openKeyPad('price')">
-            <br>현재 재고 : <input type="number" id="left" onclick="openKeyPad('left')">
+        <div class="img"><br>
+            <span id="Drink">${Drink}</span>
+            <br><br>현재 가격 : <input type="number" id="price" onclick="openKeyPad('price')">
+            <br><br>현재 재고 : <input type="number" id="left" onclick="openKeyPad('left')">
             <br><br><br>
-            <button onclick="editItem()">확인</button><button onclick="location.href = '../window12'">취소</button>
+            <button onclick="changeStock()">확인</button><button onclick="backToPage()">취소</button>
         </div>
     </div>
     <script src="/resources/js/window_16.js"></script>
