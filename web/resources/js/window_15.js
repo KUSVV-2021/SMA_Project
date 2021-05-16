@@ -1,4 +1,12 @@
+
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
+
 function removeItem(){
-    alert("삭제 완료 되었습니다.");
-    location.href = '../window12';
+    location.href = '../window15/removeItemlist?D_NAME='+document.getElementById("Drink").innerHTML+"&INDEX="+ls;
 }

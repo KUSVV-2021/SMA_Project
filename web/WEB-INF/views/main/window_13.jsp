@@ -22,7 +22,7 @@
             <br>상품명 : <input type="text" id="name">
             <br>상품 가격 : <input type="number" id="price">
             <br><br><br>
-            <button onclick="addItem()">확인</button><button onclick="location.href = '../window12'">취소</button>
+            <button onclick="addItem()">확인</button><button onclick="backToPage()">취소</button>
         </div>
     </div>
     <script src="/resources/js/window_13.js"></script>

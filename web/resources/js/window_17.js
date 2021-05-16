@@ -1,9 +1,12 @@
 
-$('.menu_ui .drink').click( function () {
-    let str = this.innerHTML;
-    location.href = '../window15?Drink=' + str;
-} );
-
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
+var obj;
 
 window.onload = function () {
 
@@ -19,8 +22,12 @@ window.onload = function () {
         }
     }
     for ( let i = 0; i < 9; i++ ) {
-        const a = document.getElementById((i+1)+"");
+        let a = document.getElementById((i+1)+"");
         a.innerHTML = obj[i].NAME;
+        a = document.getElementById("count"+(i+1));
+        a.innerHTML = obj[i].COUNT;
+        a = document.getElementById("sum"+(i+1));
+        a.innerHTML = obj[i].SUM;
     }
     $('.round_btn').click( function () {
         if ( this.classList.value.indexOf("active") >= 0 ) return;
@@ -38,4 +45,8 @@ window.onload = function () {
         btn.classList.remove("active");
         this.classList.add("active");
     });
+}
+
+function backToPage() {
+    location.href = '../window12?INDEX='+ls;
 }

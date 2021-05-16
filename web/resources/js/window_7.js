@@ -12,7 +12,6 @@ function getParam(sname) {
         }
     }
     return sval;
-
 }
 
 setTimeout(function () {

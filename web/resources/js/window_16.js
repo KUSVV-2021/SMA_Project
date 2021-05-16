@@ -1,3 +1,13 @@
+
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
+
+
 function openKeyPad(str) {
     const div = document.createElement("div");
     div.classList.add("key_pad");
@@ -68,7 +78,13 @@ function clickPad(e, str) {
     }
 }
 
-function editItem() {
-    alert("변경되었습니다.");
-    location.href = '../window12';
+function changeStock() {
+    location.href = '../window16/changeStock?INDEX='+ls+'&D_NAME='+document.getElementById("Drink").innerHTML+
+        '&PRICE='+document.getElementById("price").value+'&STOCK='+document.getElementById("left").value;
+    /*alert("변경되었습니다.");
+    location.href = '../window12';*/
+}
+
+function backToPage() {
+    location.href = '../window12?INDEX='+ls;
 }
