@@ -124,7 +124,11 @@ public class DrinkListController {
         model.addAttribute("Title", "Window-2");
         model.addAttribute("Data", getDrinkList(INDEX));
         JSONObject jo = getLocationInfo(INDEX);
-        model.addAttribute("Other", getDrinkInfoFromOtherDVM(D_NAME, INDEX, Float.parseFloat(((JSONObject)jo.get("R")).get("LONGITUDE").toString()), Float.parseFloat(((JSONObject)jo.get("R")).get("LATITUDE").toString())));
+        try {
+            model.addAttribute("Other", getDrinkInfoFromOtherDVM(D_NAME, INDEX, Float.parseFloat(((JSONObject)jo.get("R")).get("LONGITUDE").toString()), Float.parseFloat(((JSONObject)jo.get("R")).get("LATITUDE").toString())));
+        } catch (Exception e) {
+            model.addAttribute("Other", "<result='2'>");
+        }
         return "main/window_2";
     }
 
@@ -403,9 +407,9 @@ public class DrinkListController {
     }
 
     @RequestMapping(value = "/window16/changeStock")
-    public String changeStock(Model model, String NAME, int INDEX, int PRICE, int STOCK) throws IOException {
+    public String changeStock(Model model, String D_NAME, int INDEX, int PRICE, int STOCK) throws IOException {
         model.addAttribute("Title", "Window-12");
-        model.addAttribute("Data", changeStock(NAME, INDEX, PRICE, STOCK));
+        model.addAttribute("Data", changeStock(D_NAME, INDEX, PRICE, STOCK));
         return "main/window_12";
     }
 
@@ -428,7 +432,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/admin/changeStock");
+        obj = new URL("http://localhost:8080/MainProject/admin/changeDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

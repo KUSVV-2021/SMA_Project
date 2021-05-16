@@ -19,7 +19,7 @@
         <table class="menu_ui">
             <tr>
                 <td class="under_bar" colspan="3">
-                    <span class="text">삭제할 상품을 선택해 주세요</span><button onclick="location.href='../window12'" class="admin_btn">취소</button>
+                    <span class="text">삭제할 상품을 선택해 주세요</span><button onclick="backToPage()" class="admin_btn">취소</button>
                 </td>
             </tr>
             <tr><td><div class="drink" id="1"></div></td>

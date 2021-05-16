@@ -1,4 +1,11 @@
 
+let ls = localStorage.getItem("IDX_DVM");
+if (ls == null || ls == "" || ls == 0) {
+    localStorage.setItem("IDX_DVM", 1+"");
+    ls = 1;
+} else {
+    ls = ls*1;
+}
 $('.menu_ui .drink').click( function () {
     let str = this.innerHTML;
     location.href = '../window15?Drink=' + str;
@@ -38,4 +45,7 @@ window.onload = function () {
         btn.classList.remove("active");
         this.classList.add("active");
     });
+}
+function backToPage() {
+    location.href = '../window12?INDEX='+ls;
 }
