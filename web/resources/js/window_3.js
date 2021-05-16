@@ -35,17 +35,41 @@ function openKeyPad() {
     div.classList.add("key_pad");
     const table = document.createElement("table");
     let tr = document.createElement("tr");
+
     let td = document.createElement("td");
+    td.innerText = "a";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "b";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "c";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "d";
+    tr.appendChild(td);
+    table.appendChild(tr);
+    tr = document.createElement("tr");
+    td = document.createElement("td");
+    td.innerText = "e";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = "f";
+    tr.appendChild(td);
+
+
+
+    td = document.createElement("td");
     td.innerText = "1";
     tr.appendChild(td);
     td = document.createElement("td");
     td.innerText = "2";
     tr.appendChild(td);
+    table.appendChild(tr);
+    tr = document.createElement("tr");
     td = document.createElement("td");
     td.innerText = "3";
     tr.appendChild(td);
-    table.appendChild(tr);
-    tr = document.createElement("tr");
     td = document.createElement("td");
     td.innerText = "4";
     tr.appendChild(td);
@@ -66,16 +90,18 @@ function openKeyPad() {
     td = document.createElement("td");
     td.innerText = "9";
     tr.appendChild(td);
-    table.appendChild(tr);
-    tr = document.createElement("tr");
     td = document.createElement("td");
     td.innerText = "0";
     tr.appendChild(td);
     td = document.createElement("td");
+    table.appendChild(tr);
+    tr = document.createElement("tr");
     td.innerText = "delete";
+    td.colSpan=2;
     tr.appendChild(td);
     td = document.createElement("td");
     td.innerText = "enter";
+    td.colSpan=2;
     tr.appendChild(td);
     table.appendChild(tr);
     div.appendChild(table);

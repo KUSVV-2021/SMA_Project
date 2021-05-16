@@ -76,7 +76,7 @@ window.onload = function () {
     try {
         Other = JSON.parse(Other.innerHTML);
         console.log(Other);
-        location.href = '../window4?DVM_SEQ='+Other.DVM_SEQ+'LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE+'&D_NAME='+Other.D_NAME;
+        location.href = '../window4?DVM_SEQ='+Other.DVM_SEQ+'&LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE+'&D_NAME='+Other.D_NAME;
         return;
     }catch (e) {
         if (Other.innerHTML.includes("<"))
@@ -86,8 +86,8 @@ window.onload = function () {
     var Buy = document.getElementById("Buy");
     try {
         Buy = JSON.parse(Buy.innerHTML);
-        if (Buy.NAME!="undefined"){
-            location.href = '../window8?Drink='+Buy.NAME;
+        if (Buy.R.NAME!=="undefined"){
+            location.href = '../window8?Drink='+Buy.R.NAME;
         }
         return;
     }catch (e) { console.log(1);}

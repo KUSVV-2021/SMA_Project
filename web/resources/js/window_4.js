@@ -50,6 +50,7 @@ window.onload = function () {
 
 function getParam(sname) {
     let params = location.search.substr(location.search.indexOf("?") + 1);
+    console.log(params);
     let sval = "";
     params = params.split("&");
     let temp;
@@ -64,7 +65,7 @@ function getParam(sname) {
 
 function prePayment() {
     if (Math.floor(Math.random()*2) == 1)
-        location.href='../window6?INDEX='+getParam("DVN_SEQ")+'&D_NAME='+getParam("D_NAME");
+        location.href='../window6?INDEX='+getParam("DVM_SEQ")+'&D_NAME='+getParam("D_NAME");
     else
         alert("결제에 실패하였습니다.");
 }
