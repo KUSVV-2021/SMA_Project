@@ -10,3 +10,6 @@ if (ls == null || ls == "" || ls == 0) {
 function removeItem(){
     location.href = '../window15/removeItemlist?D_NAME='+document.getElementById("Drink").innerHTML+"&INDEX="+ls;
 }
+function backToPage() {
+    location.href = '../window14?INDEX='+ls;
+}

@@ -18,7 +18,7 @@
         <div class="img">
             <br><span id="Drink">${Drink}</span>상품을 삭제하시겠습니까?
             <br><br><br>
-            <button onclick="removeItem()">확인</button><button onclick="location.href = '../window14'">취소</button>
+            <button onclick="removeItem()">확인</button><button onclick="backToPage()">취소</button>
         </div>
     </div>
 <script src="/resources/js/window_15.js"></script>
