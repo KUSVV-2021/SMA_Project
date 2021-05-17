@@ -55,7 +55,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkList");
+        obj = new URL("http://3.35.83.31:9090/drink/getDrinkList");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -99,7 +99,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:8080/MainProject/drink/buyDrink");
+        obj = new URL("http://3.35.83.31:9090/drink/buyDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -147,7 +147,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:8080/MainProject/drink/getLocationInfo");
+        obj = new URL("http://3.35.83.31:9090/drink/getLocationInfo");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -184,7 +184,7 @@ public class DrinkListController {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkInfoFromOtherDVM");
+        obj = new URL("http://3.35.83.31:9090/drink/getDrinkInfoFromOtherDVM");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -250,7 +250,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/drink/inputPC");
+        obj = new URL("http://3.35.83.31:9090/drink/inputPC");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -297,7 +297,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/drink/answerPrecodeInfo");
+        obj = new URL("http://3.35.83.31:9090/drink/answerPrecodeInfo");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -342,7 +342,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/drink/addNewDrink");
+        obj = new URL("http://3.35.83.31:9090/drink/addNewDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -386,7 +386,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/admin/removeDrink");
+        obj = new URL("http://3.35.83.31:9090/admin/removeDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -432,7 +432,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/admin/changeDrink");
+        obj = new URL("http://3.35.83.31:9090/admin/changeDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -475,7 +475,7 @@ public class DrinkListController {
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
         System.out.println(postDataBytes.toString());
 
-        obj = new URL("http://localhost:8080/MainProject/admin/getSellRecord");
+        obj = new URL("http://3.35.83.31:9090/admin/getSellRecord");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
