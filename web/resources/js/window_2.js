@@ -25,11 +25,15 @@ function inputR() {
 
 var obj = null;
 $('.menu_ui .drink').click( function () {
-    /*var item = document.getElementById("Data");
-    obj = JSON.parse(item.innerHTML);
-    obj = obj.R.list;*/
     let str = this.innerHTML;
     let o = null;
+    //10% 확률로 결제 실패(원인: 카드 임시 제거, 카드 한도 초과, 잔고부족, 기한 초과 등 다양함)
+    //Window-1로 돌아간다.
+    if (Math.floor(Math.random()*10) == 4) {
+        alert("카드결제를 실패하였습니다. 카드를 제거해주세요.");
+        location.href = '../window1';
+    }
+
     for ( let i = 0; i < obj.length; i++ ) {
         if ( obj[i].NAME == str && obj[i].STOCK>0 ) {
             o = obj[i];
