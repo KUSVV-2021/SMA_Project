@@ -169,6 +169,15 @@ public class DrinkListController {
     }
 
     String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException, ParseException {
+        JSONArray ja = getOtherDVMObject(D_NAME, INDEX);
+
+        JSONObject index = getDistance(ja, lng, lat);
+        index.put("D_NAME", D_NAME);
+
+        return index!=null?index.toString():"";
+    }
+
+    private JSONArray getOtherDVMObject(String D_NAME, int INDEX) throws IOException, ParseException {
         URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
@@ -204,12 +213,7 @@ public class DrinkListController {
         Object o = parser.parse( response.toString() );
         JSONObject jsonObj = (JSONObject) o;
 
-        JSONArray ja = (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
-
-        JSONObject index = getDistance(ja, lng, lat);
-        index.put("D_NAME", D_NAME);
-
-        return index!=null?index.toString():"";
+        return (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
     }
 
     JSONObject getDistance(JSONArray ja, float lng, float lat) {

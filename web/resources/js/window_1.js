@@ -7,6 +7,11 @@ if (ls == null || ls == "" || ls == 0) {
 }
 
 window.onkeydown = function (e) {
+    inputC();
+}
+
+//c를 누르면 window2로 넘어간다.
+function inputC() {
     ls = localStorage.getItem("IDX_DVM");
     if (e.code == 'KeyC') location.href='../window2?INDEX='+ls;
 }
@@ -158,7 +163,7 @@ function clickCPad(e) {
     if ( e.target.innerText == "delete" ) {
         inputc = inputc.slice(0, -1)
     } else if ( e.target.innerText == "enter" ) {
-        if (inputc*1 > 0 && inputc*1 <=5) {
+        if (inputc*1 > 0 && inputc*1 <=10) {
             localStorage.setItem("IDX_DVM", inputc);
             alert("변경된 dvm 번호는 "+inputc+"입니다.");
             const div = document.getElementsByClassName("c_key_pad")[0];
