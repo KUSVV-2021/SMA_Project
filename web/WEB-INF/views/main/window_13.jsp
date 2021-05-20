@@ -19,7 +19,7 @@
             <%--이미지
             <br><img id="img_result"><br><input type="file" id="img" name="img" accept="image/png, image/jpeg">
             --%>
-            <br>상품명 : <input type="text" id="name">
+            <br>상품명 : <input type="text" id="name" onchange="drinkNameCheck(this)"/>
             <br>상품 가격 : <input type="number" id="price">
             <br><br><br>
             <button onclick="addItem()">확인</button><button onclick="backToPage()">취소</button>
