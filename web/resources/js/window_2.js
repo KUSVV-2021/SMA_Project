@@ -12,10 +12,16 @@ if (ls == null || ls == "" || ls == 0) {
 
 window.onkeydown = function (e) {
     if (e.code == 'KeyR') {
-        alert("카드가 제거 되었습니다.");
-        location.href='../window1';
+        inputR();
     }
 }
+
+//r를 누르면 window1로 넘어간다.
+function inputR() {
+    alert("카드가 제거 되었습니다.");
+    location.href='../window1';
+}
+
 
 var obj = null;
 $('.menu_ui .drink').click( function () {
