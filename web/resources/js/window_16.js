@@ -79,6 +79,11 @@ function clickPad(e, str) {
 }
 
 function changeStock() {
+    if ( document.getElementById("price").value == "" || document.getElementById("price").value == "0"
+    || document.getElementById("left").value == "" || document.getElementById("left").value == "0") {
+        alert("잘못된 입력입니다.");
+        return;
+    }
     location.href = '../window16/changeStock?INDEX='+ls+'&D_NAME='+document.getElementById("Drink").innerHTML+
         '&PRICE='+document.getElementById("price").value+'&STOCK='+document.getElementById("left").value;
     /*alert("변경되었습니다.");

@@ -16,7 +16,7 @@ if (ls == null || ls == "" || ls == 0) {
 }
 
 function addItem() {
-    if ( document.getElementById("name").value == "" ) {
+    if ( document.getElementById("name").value == "" || document.getElementById("price").value == "" || document.getElementById("price").value == "0" ) {
         alert("잘못된 입력입니다.");
         return;
     }
