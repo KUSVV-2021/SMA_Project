@@ -79,8 +79,10 @@ function clickPad(e, str) {
 }
 
 function changeStock() {
-    if ( document.getElementById("price").value == "" || document.getElementById("price").value == "0"
-    || document.getElementById("left").value == "" || document.getElementById("left").value == "0") {
+    if ( document.getElementById("price").value == ""               //가격이 비어있는 경우
+        || document.getElementById("price").value == "0"            //가격이 0이 입력된 경우
+        || document.getElementById("left").value == ""              //잔고가 비어있는 경우
+        || (document.getElementById("price").value*1 > 50000)) {    //가격이 5만원을 초과한 경우
         alert("잘못된 입력입니다.");
         return;
     }
