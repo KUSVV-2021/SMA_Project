@@ -17,15 +17,18 @@
     <div class="main_view">
         <div class="choice_menu_text">음료가 ${LO}, ${LA}<%--<span id="results"></span>--%>에 준비 되어 있습니다.</div><br>
         <div id="map"></div>
-        <br><button onclick="prePayment()">선결제</button><button onclick="moveTo2()">취소</button>
+        <br><button id = "prepay">선결제</button><button onclick="moveTo2()">취소</button>
     </div>
 
     <span style="display: none" id="LO">${LO}</span>
     <span style="display: none" id="LA">${LA}</span>
+    <span style="display: none" id="DVM_SEQ">${DVM_SEQ}</span>
+    <span style="display: none" id="D_NAME">${D_NAME}</span>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARjEdHGJxyp7iLr6GYMAJWWhDQADh8hGc" async defer>
     </script>
-<script src="/resources/js/window_4.js"></script>
+    <script src="/resources/js/Payment.js"></script>
+    <script src="/resources/js/window_4.js"></script>
 </body>
 </html>

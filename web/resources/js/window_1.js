@@ -7,11 +7,11 @@ if (ls == null || ls == "" || ls == 0) {
 }
 
 window.onkeydown = function (e) {
-    inputC();
+    inputC(e);
 }
 
 //c를 누르면 window2로 넘어간다.
-function inputC() {
+function inputC(e) {
     ls = localStorage.getItem("IDX_DVM");
     if (e.code == 'KeyC') location.href='../window2?INDEX='+ls;
 }

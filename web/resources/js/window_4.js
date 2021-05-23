@@ -6,6 +6,12 @@ if (ls == null || ls == "" || ls == 0) {
     ls = ls*1;
 }
 
+var pr = new Payment();
+
+document.getElementById("prepay").onclick = function () {
+    pr.prePayment();
+}
+
 window.onkeydown = function (e) {
     if (e.code == 'KeyR') {
         inputR();
@@ -66,11 +72,4 @@ function getParam(sname) {
         }
     }
     return sval;
-}
-
-function prePayment() {
-    if (Math.floor(Math.random()*2) == 1)
-        location.href='../window6?INDEX='+getParam("DVM_SEQ")+'&D_NAME='+getParam("D_NAME");
-    else
-        alert("결제에 실패하였습니다.");
 }
