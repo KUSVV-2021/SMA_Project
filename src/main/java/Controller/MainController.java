@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 
 @Controller
 public class MainController {
-    public DVM dvm;
+    public static DVM dvm;
 
     @RequestMapping(value = "/")
     public String test(Model model) {
@@ -21,6 +21,7 @@ public class MainController {
     public String windowFirst(Model model) {
         model.addAttribute("Title", "Window-1");
         dvm = DVM.getInstance();
+        dvm.
         return "main/window_1";
     }
     @RequestMapping(value = "/window3")
