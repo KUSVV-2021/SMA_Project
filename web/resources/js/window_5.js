@@ -52,8 +52,6 @@ function openKeyPad() {
     $('.key_pad td').click( (e) => clickPad(e) );
 }
 
-let chk = false;
-
 function removePad() {
     const div = document.getElementsByClassName("key_pad")[0];
     div.remove();

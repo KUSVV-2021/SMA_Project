@@ -20,8 +20,8 @@
             <tr>
                 <td colspan="3">
                     <button onclick="addButton()" class="admin_btn">추가</button>
-                    <button onclick="removeItem()" class="admin_btn">삭제</button>
-                    <button onclick="getRecord()" class="admin_btn">판매 내역 확인</button>
+                    <button id="openDelMenu" class="admin_btn">삭제</button>
+                    <button id="getPaymentList" class="admin_btn">판매 내역 확인</button>
                     <button onclick="location.href='../window1'" class="admin_btn">x</button>
                 </td>
             </tr>
@@ -43,6 +43,7 @@
         </table>
     </div>
     <span style="display: none" id="Data">${Data}</span>
+    <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_12.js"></script>
 </body>
 </html>

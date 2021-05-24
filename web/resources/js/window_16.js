@@ -1,12 +1,9 @@
 
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
 
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
 function openKeyPad(str) {
     const div = document.createElement("div");
@@ -86,12 +83,9 @@ function changeStock() {
         alert("잘못된 입력입니다.");
         return;
     }
-    location.href = '../window16/changeStock?INDEX='+ls+'&D_NAME='+document.getElementById("Drink").innerHTML+
-        '&PRICE='+document.getElementById("price").value+'&STOCK='+document.getElementById("left").value;
-    /*alert("변경되었습니다.");
-    location.href = '../window12';*/
+    dvm.changeStock(document.getElementById("Drink").innerHTML, document.getElementById("price").value, document.getElementById("left").value);
 }
 
 function backToPage() {
-    location.href = '../window12?INDEX='+ls;
+    dvm.backToPage(12);
 }

@@ -6,17 +6,20 @@ class Item {
         this.stock = stock;
     }
 
-    getItemQuantity() {
-        return this.stock;
-    }
-
     getItemId() {
         return this.seq;
+    }
+
+    getItemName() {
+        return this.name;
     }
 
     getItemPrice() {
         return this.price;
     }
 
+    getItemQuantity() {
+        return this.stock;
+    }
 
 }

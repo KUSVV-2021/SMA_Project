@@ -1,15 +1,13 @@
 
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
 
-function removeItem(){
-    location.href = '../window15/removeItemlist?D_NAME='+document.getElementById("Drink").innerHTML+"&INDEX="+ls;
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
+
+function removeItemLIst(){
+    dvm.removeItemList(document.getElementById("Drink").innerHTML);
 }
 function backToPage() {
-    location.href = '../window14?INDEX='+ls;
+    dvm.backToPage(14);
 }

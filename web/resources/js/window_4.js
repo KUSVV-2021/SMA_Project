@@ -1,31 +1,23 @@
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
 
-var pr = new Payment();
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
+
+let pr = new Payment();
 
 document.getElementById("prepay").onclick = function () {
-    pr.prePayment();
+    pr.prePayment(1000);
+}
+
+document.getElementById("moveTo2").onclick = function () {
+    dvm.moveTo2();
 }
 
 window.onkeydown = function (e) {
     if (e.code == 'KeyR') {
-        inputR();
+        dvm.removeCard();
     }
-}
-
-//r를 누르면 window1로 넘어간다.
-function inputR() {
-    alert("카드가 제거 되었습니다.");
-    location.href='../window1';
-}
-
-function moveTo2(){
-    location.href='../window2?INDEX='+ls;
 }
 
 let map;
@@ -44,18 +36,6 @@ function initMap() {
     });
 }
 window.onload = function () {
-    /*const LO = document.getElementById("LO").innerHTML;
-    const LA = document.getElementById("LA").innerHTML;
-    let check = true;
-    var xhr = new XMLHttpRequest();
-    var yourUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+LO+","+LA+"&key=AIzaSyAEGJ5Q9a-TYjOy_n-UuJPf5fwuO3Ai4j8";
-    xhr.open("POST", yourUrl, false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send();
-    try{
-        yourUrl = JSON.parse(xhr.responseText);
-    } catch (e) { check = false; }
-    document.getElementById("results").innerHTML = yourUrl.results.formatted_address;*/
     initMap();
 }
 

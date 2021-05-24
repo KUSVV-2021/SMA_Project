@@ -16,9 +16,10 @@
 <body>
     <div class="main_view">
         <input class="input_code" type="text" placeholder="선결제 코드 입력" onclick="openKeyPad()"/>
-        <br><button onclick="inputPrecode();">확인</button><button onclick="location.href='../window1'">취소</button>
+        <br><button onclick="answerPrecodeInfo();">확인</button><button onclick="location.href='../window1'">취소</button>
     </div>
     <span style="display: none" id="Info">${Info}</span>
+    <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_3.js"></script>
 </body>
 </html>

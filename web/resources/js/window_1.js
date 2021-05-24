@@ -1,19 +1,12 @@
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+//let ls = localStorage.getItem("IDX_DVM");
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
+
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
 window.onkeydown = function (e) {
-    inputC(e);
-}
-
-//c를 누르면 window2로 넘어간다.
-function inputC(e) {
-    ls = localStorage.getItem("IDX_DVM");
-    if (e.code == 'KeyC') location.href='../window2?INDEX='+ls;
+    dvm.inputC(e);
 }
 
 let input = "";
@@ -105,7 +98,7 @@ function clickPad(e) {
 
 let inputc = "";
 function chgDVMNumber() {
-    input = "";
+    inputc = "";
     const div = document.createElement("div");
     div.classList.add("c_key_pad");
     const table = document.createElement("table");
@@ -174,4 +167,8 @@ function clickCPad(e) {
     } else {
         inputc += e.target.innerText;
     }
+}
+
+function choosePrepayment() {
+    dvm.choosePrepayment();
 }

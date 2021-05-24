@@ -1,21 +1,10 @@
-/*const inputElement = document.getElementById("img");
-inputElement.addEventListener("change", handleFiles, false);
-function handleFiles() {
-    const fileList = this.files; /!* 이제 파일 리스트로 작업할 수 있습니다 *!/
-    console.log(fileList[0]);
-
-    const img = document.getElementById("img_result");
-    img.src = window.URL.createObjectURL(fileList[0]);
-}*/
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
 
-function addItem() {
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
+
+function addItemlist() {
     if ( document.getElementById("name").value == ""                //음료의 이름이 없을경우
         || document.getElementById("price").value == ""             //가격이 비어있을 경우
         || document.getElementById("price").value == "0"            //가격이 0이 입력된 경우
@@ -23,11 +12,10 @@ function addItem() {
         alert("잘못된 입력입니다.");
         return;
     }
-    location.href = '../window13/addItemlist?NAME='+document.getElementById("name").value+
-        '&PRICE='+document.getElementById("price").value+'&INDEX='+ls;
+    dvm.addItemlist(document.getElementById("name").value, document.getElementById("price").value);
 }
 function backToPage() {
-    location.href = '../window12?INDEX='+ls;
+    dvm.backToPage(12);
 }
 
 //음료 이름의 길이는 20자를 넘길 수 없습니다.

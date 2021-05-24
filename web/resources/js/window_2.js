@@ -1,32 +1,21 @@
-/*const drink = new Map([
-    ["coke", 2],
-    ["pepsi", 0],
-])*/
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
+
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
 window.onkeydown = function (e) {
     if (e.code == 'KeyR') {
-        inputR();
+        dvm.removeCard();
     }
 }
 
-//r를 누르면 window1로 넘어간다.
-function inputR() {
-    alert("카드가 제거 되었습니다.");
-    location.href='../window1';
-}
 
-
-var obj = null;
+//var obj = null;
 $('.menu_ui .drink').click( function () {
     let str = this.innerHTML;
     let o = null;
+    let obj = dvm.getItemList();
     //10% 확률로 결제 실패(원인: 카드 임시 제거, 카드 한도 초과, 잔고부족, 기한 초과 등 다양함)
     //Window-1로 돌아간다.
     if (Math.floor(Math.random()*10) == 4) {
@@ -44,16 +33,17 @@ $('.menu_ui .drink').click( function () {
     if (o != null) {
         console.log(o.NAME+":"+o.STOCK);
         if ( confirm(o.NAME+"을(를) 구매 하시겠습니까?") )
-            location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+ls;
+            location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+dvm.getDVMId();
     } else {
-        location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+ls;
+        location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+dvm.getDVMId();
     }
 } );
 
 window.onload = function () {
     var item = document.getElementById("Data");
-    obj = JSON.parse(item.innerHTML);
-    obj = obj.R.list;
+    let obj = JSON.parse(item.innerHTML);
+    dvm.setItemList(obj.R.list);
+    obj = dvm.getItemList();
     const body = document.getElementsByClassName("fit_contents")[0];
     for ( let i = 0; i < obj.length/9; i++ ) {
         const a = '<button class="round_btn menu_btn">'+(i+1)+'</button>';

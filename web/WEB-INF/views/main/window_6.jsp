@@ -22,6 +22,7 @@
             선결제 코드 : ${RandomCode}
         </div>
     </div>
-<script src="/resources/js/window_6.js"></script>
+    <script src="/resources/js/DVM.js"></script>
+    <script src="/resources/js/window_6.js"></script>
 </body>
 </html>

@@ -16,10 +16,11 @@
 <body>
     <div class="main_view">
         결제 카드를 삽입해주세요<br>
-        <input onclick="location.href='../window3'" class="input_code" type="text" placeholder="선결제 코드 입력"/>
+        <input onclick="choosePrepayment()" class="input_code" type="text" placeholder="선결제 코드 입력"/>
         <br><br><br>
         <button onclick="chgDVMNumber()">DVM바꾸기</button><button onclick="openKeyPad()">보안코드입력</button>
     </div>
+    <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_1.js"></script>
 </body>
 </html>

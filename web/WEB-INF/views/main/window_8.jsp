@@ -17,6 +17,7 @@
             선택하신 ${Drink} 나왔습니다
             <br><br>이용해주셔서 감사합니다
     </div>
+    <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_8.js"></script>
 </body>
 </html>
