@@ -19,7 +19,7 @@ public class Precode {
     private int dvmIndex;
     private static Precode precode = null;
 
-    public Precode(int dvmIndex){
+    private Precode(int dvmIndex){
         this.code = "";
         this.dvmIndex = dvmIndex;
     }
@@ -63,7 +63,6 @@ public class Precode {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/drink/answerPrecodeInfo");
 
@@ -100,7 +99,6 @@ public class Precode {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/drink/inputPC");
 
@@ -120,7 +118,12 @@ public class Precode {
         in.close();
 
         JSONParser parser = new JSONParser();
-        Object o = parser.parse( response.toString() );
+        Object o = null;
+        try {
+            o = parser.parse( response.toString() );
+        } catch (Exception e) {
+            return "";
+        }
         JSONObject jsonObj = (JSONObject) o;
         return  ((JSONObject)jsonObj.get("R")).get("code").toString();
     }

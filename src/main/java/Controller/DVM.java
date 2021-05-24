@@ -116,7 +116,8 @@ public class DVM {
         JSONArray ja = getOtherDVMObject(D_NAME, INDEX);
 
         JSONObject index = calculateDistance(ja, lng, lat);
-        index.put("D_NAME", D_NAME);
+        if (index != null)
+            index.put("D_NAME", D_NAME);
 
         return index!=null?index.toString():"";
     }
@@ -154,13 +155,19 @@ public class DVM {
         }
         in.close();
         JSONParser parser = new JSONParser();
-        Object o = parser.parse( response.toString() );
+        Object o;
+        try {
+            o = parser.parse(response.toString());
+        } catch (Exception e) {
+            return null;
+        }
         JSONObject jsonObj = (JSONObject) o;
 
         return (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
     }
 
     static JSONObject calculateDistance(JSONArray ja, float lng, float lat) {
+        if (ja == null) return null;
         JSONObject index = null;
         float min = 100000;
         for ( Object o1 : ja) {

@@ -46,7 +46,12 @@ public class Location {
         }
         in.close();
         JSONParser parser = new JSONParser();
-        Object o = parser.parse( response.toString() );
+        Object o = null;
+        try {
+            o = parser.parse( response.toString() );
+        } catch (Exception e) {
+            return new JSONObject();
+        }
         return (JSONObject) o;
     }
 

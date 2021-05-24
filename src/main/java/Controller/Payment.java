@@ -24,7 +24,6 @@ public class Payment {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/admin/getSellRecord");
 

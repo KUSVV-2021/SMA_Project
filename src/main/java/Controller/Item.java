@@ -8,10 +8,17 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class Item {
+    static Logger log = Logger.getLogger(Item.class.getName());
 
     static String addItemlist(String NAME, int PRICE, int INDEX) throws IOException {
+        if (PRICE > 50000) {
+            log.info("price is out of range : change price to 50000");
+            PRICE = 50000;
+        }
+
         URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
@@ -27,7 +34,6 @@ public class Item {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/drink/addNewDrink");
 
@@ -67,7 +73,6 @@ public class Item {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/admin/changeDrink");
 
@@ -104,7 +109,6 @@ public class Item {
             postData.append(param.getValue());
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-        System.out.println(postDataBytes.toString());
 
         obj = new URL("http://3.35.83.31:9090/admin/removeDrink");
 
