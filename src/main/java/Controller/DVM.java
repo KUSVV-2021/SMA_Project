@@ -1,6 +1,7 @@
 package Controller;
 
 
+import junit.extensions.RepeatedTest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,7 +22,7 @@ public class DVM {
     private static int seq;
 
     private DVM(){
-        itemList = "";       //음료정보들 초기화
+        itemList = "";       //reset DrinkList
     }
 
     public static DVM getInstance() {
@@ -40,6 +41,7 @@ public class DVM {
     }
 
     static String getDrinkList(int INDEX) throws IOException {
+        if ( INDEX < 1 ) return "";
         URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();

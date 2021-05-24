@@ -1,132 +1,29 @@
 package Controller;
 
-import org.junit.Test;
-import org.springframework.stereotype.Controller;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.logging.*;
+import static org.junit.jupiter. api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Controller
 public class TestController {
-
-    private static final Object INDEX = 1;
-    private static final Object SEQ = 1;
-    private static final Object D_NAME = "칠성사이다";
-
+    static Logger log = Logger.getLogger(TestController.class.getName());
     @Test
-    public void getDrinkList() throws IOException {
-        URL obj = null;
-
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("INDEX", INDEX);
-
-        StringBuilder postData = new StringBuilder();
-        for(Map.Entry<String,Object> param : params.entrySet()) {
-            if(postData.length() != 0) postData.append('&');
-            postData.append(param.getKey());
-            postData.append('=');
-            postData.append(param.getValue());
-        }
-        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-
-        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkList");
-
-        HttpURLConnection con = (HttpURLConnection)obj.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-        con.setDoOutput(true);
-        con.getOutputStream().write(postDataBytes);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), "UTF-8"));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while((inputLine = in.readLine()) != null){
-            response.append(inputLine);
-        }
-        in.close();
-
-        String result = response.toString();
+    void basic() {
+        assertEquals(2, 1 + 1);
     }
 
-    @Test
-    public void buyDrink() throws IOException {
-        URL obj = null;
-
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("INDEX", INDEX);
-        params.put("D_SEQ", SEQ);
-
-        StringBuilder postData = new StringBuilder();
-        for(Map.Entry<String,Object> param : params.entrySet()) {
-            if(postData.length() != 0) postData.append('&');
-            postData.append(param.getKey());
-            postData.append('=');
-            postData.append(param.getValue());
-        }
-        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-
-        obj = new URL("http://localhost:8080/MainProject/drink/buyDrink");
-
-        HttpURLConnection con = (HttpURLConnection)obj.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-        con.setDoOutput(true);
-        con.getOutputStream().write(postDataBytes);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while((inputLine = in.readLine()) != null){
-            response.append(inputLine);
-        }
-        in.close();
-
-        String result = response.toString();
+    @ParameterizedTest
+    @ValueSource(ints = { 1, 5 })
+    void isPositive(int number) {
+        assertTrue(number > 0);
     }
 
-    @Test
-    public void getDrinkInfoFromOtherDVM() throws IOException {
-        URL obj = null;
-
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("INDEX", INDEX);
-        params.put("D_NAME", D_NAME);
-
-        StringBuilder postData = new StringBuilder();
-        for(Map.Entry<String,Object> param : params.entrySet()) {
-            if(postData.length() != 0) postData.append('&');
-            postData.append(param.getKey());
-            postData.append('=');
-            postData.append(param.getValue());
-        }
-        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-
-        obj = new URL("http://localhost:8080/MainProject/drink/getDrinkInfoFromOtherDVM");
-
-        HttpURLConnection con = (HttpURLConnection)obj.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-        con.setDoOutput(true);
-        con.getOutputStream().write(postDataBytes);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while((inputLine = in.readLine()) != null){
-            response.append(inputLine);
-        }
-        in.close();
-
-        String result = response.toString();
+    @RepeatedTest(5)
+    void repeatedTest() {
+        System.out.println("테스트 반복!");
     }
-
 }

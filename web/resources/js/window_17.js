@@ -1,11 +1,10 @@
 
-let ls = localStorage.getItem("IDX_DVM");
-if (ls == null || ls == "" || ls == 0) {
+if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") == "" || localStorage.getItem("IDX_DVM") == 0) {
     localStorage.setItem("IDX_DVM", 1+"");
-    ls = 1;
-} else {
-    ls = ls*1;
 }
+
+const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
+
 var obj;
 
 window.onload = function () {
