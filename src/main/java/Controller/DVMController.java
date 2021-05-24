@@ -51,7 +51,7 @@ public class DVMController {
     public String getDrinkInfoFromOtherDVM(Model model, String D_NAME, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
         model.addAttribute("Data", DVM.getDrinkList(INDEX));
-        JSONObject jo = DVM.getLocationInfo(INDEX);
+        JSONObject jo = Location.getLocationInfo(INDEX);
         try {
             model.addAttribute("Other", DVM.getDrinkInfoFromOtherDVM(D_NAME, INDEX, Float.parseFloat(((JSONObject)jo.get("R")).get("LONGITUDE").toString()), Float.parseFloat(((JSONObject)jo.get("R")).get("LATITUDE").toString())));
         } catch (Exception e) {

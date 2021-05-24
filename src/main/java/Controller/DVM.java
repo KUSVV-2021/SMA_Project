@@ -39,14 +39,6 @@ public class DVM {
         return itemList;
     }
 
-    public void setSeq(int seq) {
-        this.seq = seq;
-    }
-
-    public int getSeq() {
-        return seq;
-    }
-
     static String getDrinkList(int INDEX) throws IOException {
         URL obj = null;
 
@@ -117,43 +109,6 @@ public class DVM {
 
         return response.toString();
     }
-
-    static JSONObject getLocationInfo(int index) throws IOException, ParseException {
-        URL obj = null;
-
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("INDEX", index);
-
-        StringBuilder postData = new StringBuilder();
-        for(Map.Entry<String,Object> param : params.entrySet()) {
-            if(postData.length() != 0) postData.append('&');
-            postData.append(param.getKey());
-            postData.append('=');
-            postData.append(param.getValue());
-        }
-        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-
-        obj = new URL("http://3.35.83.31:9090/drink/getLocationInfo");
-
-        HttpURLConnection con = (HttpURLConnection)obj.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-        con.setDoOutput(true);
-        con.getOutputStream().write(postDataBytes);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while((inputLine = in.readLine()) != null){
-            response.append(inputLine);
-        }
-        in.close();
-        JSONParser parser = new JSONParser();
-        Object o = parser.parse( response.toString() );
-        return (JSONObject) o;
-    }
-
 
     static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException, ParseException {
         JSONArray ja = getOtherDVMObject(D_NAME, INDEX);

@@ -51,11 +51,6 @@ public class MainController {
         return "main/window_8";
     }
 
-    @RequestMapping(value = "/window7")
-    public String window7th(Model model) {
-        model.addAttribute("Title", "Window-7");
-        return "main/window_7";
-    }
     @RequestMapping(value = "/window13")
     public String window13th(Model model) {
         model.addAttribute("Title", "Window-13");
@@ -72,13 +67,6 @@ public class MainController {
         model.addAttribute("Title", "Window-16");
         model.addAttribute("Drink", Drink);
         return "main/window_16";
-    }
-    @RequestMapping(value = "/window20")
-    public String window20th(Model model, int PageNum, String Number) {
-        model.addAttribute("Title", "Window-20");
-        model.addAttribute("PageNum", PageNum);
-        model.addAttribute("Number", Number);
-        return "main/window_20";
     }
     @RequestMapping(value = "/payment")
     public String payment(Model model, int Price) {
