@@ -12,8 +12,8 @@ function addItemlist() {
         alert("잘못된 입력입니다.");
         return;
     } else {
-        if ( document.getElementById("name").value.length > 100 ) {
-            alert("음료의 이름은 100자 이내로 작성가능합니다.");
+        if ( document.getElementById("name").value.length > 20 ) {
+            alert("음료 이름의 길이는 20자를 넘길수 없습니다.");
             return;
         } else {
             dvm.addItemlist(document.getElementById("name").value, document.getElementById("price").value);
