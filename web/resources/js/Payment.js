@@ -19,7 +19,7 @@ class Payment {
         if (Math.floor(Math.random()*10) == 4) return false;
         return true;
     }
-    getPaymentList() {
-        location.href = '../window17?INDEX='+this.seq;
+    getPaymentList(seq) {
+        location.href = '../window17?INDEX='+seq;
     }
 }

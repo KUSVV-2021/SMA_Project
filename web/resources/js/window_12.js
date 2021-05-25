@@ -79,5 +79,5 @@ document.getElementById("openDelMenu").onclick = function () {
 }
 
 document.getElementById("getPaymentList").onclick = function () {
-    pr.getPaymentList();
+    pr.getPaymentList(dvm.getDVMId());
 }
