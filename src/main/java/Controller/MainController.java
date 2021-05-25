@@ -29,11 +29,12 @@ public class MainController {
         return "main/window_3";
     }
     @RequestMapping(value = "/window4")
-    public String window4th(Model model, int DVM_SEQ, String LONGITUDE, String LATITUDE, String D_NAME) {
+    public String window4th(Model model, int DVM_SEQ, int STOCK, String LONGITUDE, String LATITUDE, String D_NAME) {
         model.addAttribute("Title", "Window-4");
         model.addAttribute("LO", LONGITUDE);
         model.addAttribute("LA", LATITUDE);
         model.addAttribute("DVM_SEQ", DVM_SEQ);
+        model.addAttribute("STOCK", STOCK);
         model.addAttribute("D_NAME", D_NAME);
         return "main/window_4";
     }

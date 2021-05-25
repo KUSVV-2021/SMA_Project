@@ -113,7 +113,17 @@ public class DVM {
     }
 
     static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException, ParseException {
-        JSONArray ja = getOtherDVMObject(D_NAME, INDEX);
+        String result = getOtherDVMObject(D_NAME, INDEX);
+        JSONParser parser = new JSONParser();
+        Object o;
+        try {
+            o = parser.parse(result);
+        } catch (Exception e) {
+            return result;
+        }
+        JSONObject jsonObj = (JSONObject) o;
+
+        JSONArray ja = (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
 
         JSONObject index = calculateDistance(ja, lng, lat);
         if (index != null)
@@ -122,7 +132,7 @@ public class DVM {
         return index!=null?index.toString():"";
     }
 
-    private static JSONArray getOtherDVMObject(String D_NAME, int INDEX) throws IOException, ParseException {
+    private static String getOtherDVMObject(String D_NAME, int INDEX) throws IOException {
         URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
@@ -154,16 +164,7 @@ public class DVM {
             response.append(inputLine);
         }
         in.close();
-        JSONParser parser = new JSONParser();
-        Object o;
-        try {
-            o = parser.parse(response.toString());
-        } catch (Exception e) {
-            return null;
-        }
-        JSONObject jsonObj = (JSONObject) o;
-
-        return (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
+        return response.toString();
     }
 
     static JSONObject calculateDistance(JSONArray ja, float lng, float lat) {

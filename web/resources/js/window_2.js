@@ -55,7 +55,7 @@ window.onload = function () {
             document.getElementsByClassName("round_btn")[0].classList.add("active");
         }
     }
-    for ( let i = 0; i < 9; i++ ) {
+    for ( let i = 0; i < 9 && i < obj.length; i++ ) {
         const a = document.getElementById((i+1)+"");
         a.innerHTML = obj[i].NAME;
     }
@@ -80,7 +80,7 @@ window.onload = function () {
     try {
         Other = JSON.parse(Other.innerHTML);
         console.log(Other);
-        location.href = '../window4?DVM_SEQ='+Other.DVM_SEQ+'&LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE+'&D_NAME='+Other.D_NAME;
+        location.href = '../window4?DVM_SEQ='+Other.DVM_SEQ+'&STOCK='+Other.STOCK+'&LONGITUDE='+Other.LONGITUDE+'&LATITUDE='+Other.LATITUDE+'&D_NAME='+Other.D_NAME;
         return;
     }catch (e) {
         if (Other.innerHTML.includes("<"))
