@@ -11,12 +11,14 @@ import java.io.IOException;
 public class PrecodeController {
 
     @RequestMapping(value = "/window6")
-    public String getPrecode(Model model, int INDEX, String D_NAME) throws IOException, ParseException {
+    public String getPrecode(Model model, int INDEX, String D_NAME, float LO, float LA) throws IOException, ParseException {
         model.addAttribute("Title", "Window-6");
         Precode precode = Precode.getInstance();
         precode.setDvmIndex(INDEX);
         precode.setCode(Precode.getPrecode(precode.getDvmIndex(), D_NAME));
         model.addAttribute("RandomCode", precode.getCode());
+        model.addAttribute("LO", LO);
+        model.addAttribute("LA", LA);
         return "main/window_6";
     }
 

@@ -16,12 +16,16 @@
 <body>
     <div class="main_view">
         <div class="location_dvm">
-            자판기 위치
+            <div id="map"></div>
         </div>
         <div class="pre_code">
             선결제 코드 : ${RandomCode}
         </div>
     </div>
+    <span style="display: none" id="LO">${LO}</span>
+    <span style="display: none" id="LA">${LA}</span>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARjEdHGJxyp7iLr6GYMAJWWhDQADh8hGc" async defer>
+    </script>
     <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_6.js"></script>
 </body>

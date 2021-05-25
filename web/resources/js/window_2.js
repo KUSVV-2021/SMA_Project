@@ -19,13 +19,6 @@ $('.menu_ui .drink').click( function () {
     }
     let o = null;
     let obj = dvm.getItemList();
-    //10% 확률로 결제 실패(원인: 카드 임시 제거, 카드 한도 초과, 잔고부족, 기한 초과 등 다양함)
-    //Window-1로 돌아간다.
-    if (Math.floor(Math.random()*10) == 4) {
-        alert("카드결제를 실패하였습니다. 카드를 제거해주세요.");
-        location.href = '../window1';
-    }
-
     for ( let i = 0; i < obj.length; i++ ) {
         if ( obj[i].NAME == str && obj[i].STOCK>0 ) {
             o = obj[i];
@@ -35,8 +28,16 @@ $('.menu_ui .drink').click( function () {
     }
     if (o != null) {
         console.log(o.NAME+":"+o.STOCK);
-        if ( confirm(o.NAME+"을(를) 구매 하시겠습니까?") )
-            location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+dvm.getDVMId();
+        if ( confirm(o.NAME+"을(를) 구매 하시겠습니까?") ) {
+            //10% 확률로 결제 실패(원인: 카드 임시 제거, 카드 한도 초과, 잔고부족, 기한 초과 등 다양함)
+            //Window-1로 돌아간다.
+            if (Math.floor(Math.random()*10) == 4) {
+                alert("카드결제를 실패하였습니다. 카드를 제거해주세요.");
+                location.href = '../window1';
+            } else {
+                location.href = "/window2/buyDrink?SEQ="+o.SEQ+"&INDEX="+dvm.getDVMId();
+            }
+        }
     } else {
         location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+dvm.getDVMId();
     }

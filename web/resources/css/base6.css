@@ -9,3 +9,7 @@
     margin: 10px auto;
     border: solid 2px black;
 }
+#map {
+    height: 300px;
+    width: 400px;
+}

@@ -5,8 +5,12 @@ class Payment {
         this.itemIndex = -1;
     }
     prePayment(itemPrice) {         //void
-        if (this.requestPayment(itemPrice))
-            location.href='../window6?INDEX='+getParam("DVM_SEQ")+'&D_NAME='+getParam("D_NAME");
+        const LO = document.getElementById("LO").innerHTML;
+        const LA = document.getElementById("LA").innerHTML;
+        if (this.requestPayment(itemPrice)) {
+            location.href='../window6?INDEX='+getParam("DVM_SEQ")+
+                '&D_NAME='+getParam("D_NAME")+'&LO='+LO+'&LA='+LA;
+        }
         else
             alert("결제에 실패하였습니다.");
     }
