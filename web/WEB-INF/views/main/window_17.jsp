@@ -40,6 +40,7 @@
         </div>
     </div>
     <span style="display: none" id="Data">${Data}</span>
-<script src="/resources/js/window_17.js"></script>
+    <script src="/resources/js/DVM.js"></script>
+    <script src="/resources/js/window_17.js"></script>
 </body>
 </html>

@@ -47,5 +47,5 @@ window.onload = function () {
 }
 
 function backToPage() {
-    location.href = '../window12?INDEX='+ls;
+    dvm.backToPage(12);
 }
