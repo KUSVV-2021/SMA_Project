@@ -27,6 +27,8 @@ public class DVMController {
     @RequestMapping(value = "/window2")
     public String windowSecond(Model model, int INDEX) throws IOException, ParseException {
         model.addAttribute("Title", "Window-2");
+        if (MainController.dvm == null)
+            MainController.dvm = DVM.getInstance();
         MainController.dvm.setItemList(DVM.getDrinkList(INDEX));
         model.addAttribute("Data", MainController.dvm.getItemList());
         return "main/window_2";
@@ -35,6 +37,8 @@ public class DVMController {
     @RequestMapping(value = "/window12")
     public String window12th(Model model, int INDEX) throws IOException {
         model.addAttribute("Title", "Window-12");
+        if (MainController.dvm == null)
+            MainController.dvm = DVM.getInstance();
         MainController.dvm.setItemList(DVM.getDrinkList(INDEX));
         model.addAttribute("Data", MainController.dvm.getItemList());
         return "main/window_12";

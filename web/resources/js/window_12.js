@@ -23,19 +23,32 @@ function addButton() {
 window.onload = function () {
 
     var item = document.getElementById("Data");
-    obj = JSON.parse(item.innerHTML);
-    obj = obj.R.list;
-    const body = document.getElementsByClassName("fit_contents")[0];
-    for ( let i = 0; i < obj.length/9; i++ ) {
-        const a = '<button class="round_btn menu_btn">'+(i+1)+'</button>';
-        body.innerHTML+=a;
-        if ( i == 0 ) {
-            document.getElementsByClassName("round_btn")[0].classList.add("active");
+    try {
+        obj = JSON.parse(item.innerHTML);
+        obj = obj.R.list;
+        const body = document.getElementsByClassName("fit_contents")[0];
+        for ( let i = 0; i < obj.length/9; i++ ) {
+            const a = '<button class="round_btn menu_btn">'+(i+1)+'</button>';
+            body.innerHTML+=a;
+            if ( i == 0 ) {
+                document.getElementsByClassName("round_btn")[0].classList.add("active");
+            }
         }
-    }
-    for ( let i = 0; i < 9; i++ ) {
-        const a = document.getElementById((i+1)+"");
-        a.innerHTML = obj[i].NAME;
+        for ( let i = 0; i < 9; i++ ) {
+            const a = document.getElementById((i+1)+"");
+            a.innerHTML = obj[i].NAME;
+        }
+    } catch (e) {
+        console.log(item.innerHTML.split("result=\"")[1].split("\"")[0]);
+        switch (item.innerHTML.split("result=\"")[1].split("\"")[0]*1) {
+            case 1:
+                alert("db에러가 발생했습니다.");
+                break;
+            case 2:
+                alert("이미 있는 음료입니다.");
+                break;
+        }
+        dvm.backToPage(12);
     }
     $('.round_btn').click( function () {
         if ( this.classList.value.indexOf("active") >= 0 ) return;
@@ -56,7 +69,10 @@ window.onload = function () {
 }
 
 document.getElementById("openDelMenu").onclick = function () {
-    dvm.openDelMenu();
+    if (obj.length > 1)
+        dvm.openDelMenu();
+    else
+        alert("더이상 삭제할 수 없습니다.");
 }
 
 document.getElementById("getPaymentList").onclick = function () {
