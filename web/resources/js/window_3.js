@@ -102,7 +102,12 @@ function clickPad(e) {
     } else if ( e.target.innerText == "enter" ) {
         removePad();
     } else {
-        inputC.value += e.target.innerText;
+        if (inputC.value.length > 20) {
+            alert("입력 범위를 초과했습니다.");
+            inputC.value -= inputC.value[inputC.value.length-1];
+        } else {
+            inputC.value += e.target.innerText;
+        }
     }
 }
 
