@@ -72,7 +72,7 @@ window.onload = function () {
 }
 
 document.getElementById("openDelMenu").onclick = function () {
-    if (obj.length > 1)
+    if (obj.length > 2)
         dvm.openDelMenu();
     else
         alert("더이상 삭제할 수 없습니다.");

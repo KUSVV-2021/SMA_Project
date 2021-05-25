@@ -104,7 +104,7 @@ function clickPad(e) {
     } else {
         if (inputC.value.length > 20) {
             alert("입력 범위를 초과했습니다.");
-            inputC.value -= inputC.value[inputC.value.length-1];
+            inputC.value = inputC.value.slice(0, -1)
         } else {
             inputC.value += e.target.innerText;
         }
