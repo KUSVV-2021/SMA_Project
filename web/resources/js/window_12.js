@@ -37,12 +37,12 @@ window.onload = function () {
                 document.getElementsByClassName("round_btn")[0].classList.add("active");
             }
         }
-        for ( let i = 0; i < 9; i++ ) {
+        for ( let i = 0; i < 9 && i < obj.length; i++ ) {
             const a = document.getElementById((i+1)+"");
             a.innerHTML = obj[i].NAME;
         }
     } catch (e) {
-        console.log(item.innerHTML.split("result=\"")[1].split("\"")[0]);
+        console.log(item.innerHTML);
         switch (item.innerHTML.split("result=\"")[1].split("\"")[0]*1) {
             case 1:
                 alert("db에러가 발생했습니다.");
