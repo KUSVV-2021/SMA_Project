@@ -8,7 +8,8 @@ function addItemlist() {
     if ( ( document.getElementById("name").value == "" )               //음료의 이름이 없을경우
         || ( document.getElementById("price").value == "" )             //가격이 비어있을 경우
         || ( document.getElementById("price").value == "0" )            //가격이 0이 입력된 경우
-        || (document.getElementById("price").value*1 > 50000) ) {   //가격이 5만원을 초과한 경우
+        || (document.getElementById("price").value*1 > 50000)   //가격이 5만원을 초과한 경우
+        || (document.getElementById("price").value*1 < 1) ) {
         alert("잘못된 입력입니다.");
         return;
     } else {
