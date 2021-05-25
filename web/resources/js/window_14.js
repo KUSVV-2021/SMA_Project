@@ -7,6 +7,9 @@ const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
 $('.menu_ui .drink').click( function () {
     let str = this.innerHTML;
+    if (str == "") {
+        return;
+    }
     dvm.chsDelete(str);
 } );
 

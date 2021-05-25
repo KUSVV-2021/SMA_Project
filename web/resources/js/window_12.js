@@ -10,6 +10,9 @@ let pr = new Payment();
 var obj;
 $('.menu_ui .drink').click( function () {
     let str = this.innerHTML;
+    if (str == "") {
+        return;
+    }
     dvm.openChgMenu(str);
 } );
 

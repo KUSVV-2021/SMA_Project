@@ -14,6 +14,9 @@ window.onkeydown = function (e) {
 //var obj = null;
 $('.menu_ui .drink').click( function () {
     let str = this.innerHTML;
+    if (str == "") {
+        return;
+    }
     let o = null;
     let obj = dvm.getItemList();
     //10% 확률로 결제 실패(원인: 카드 임시 제거, 카드 한도 초과, 잔고부족, 기한 초과 등 다양함)
