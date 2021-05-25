@@ -11,8 +11,14 @@ function addItemlist() {
         || (document.getElementById("price").value*1 > 50000) ) {   //가격이 5만원을 초과한 경우
         alert("잘못된 입력입니다.");
         return;
+    } else {
+        if ( document.getElementById("name").value.length > 100 ) {
+            alert("음료의 이름은 100자 이내로 작성가능합니다.");
+            return;
+        } else {
+            dvm.addItemlist(document.getElementById("name").value, document.getElementById("price").value);
+        }
     }
-    dvm.addItemlist(document.getElementById("name").value, document.getElementById("price").value);
 }
 function backToPage() {
     dvm.backToPage(12);
