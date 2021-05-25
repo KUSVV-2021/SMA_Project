@@ -23,6 +23,7 @@
             <button onclick="changeStock()">확인</button><button onclick="backToPage()">취소</button>
         </div>
     </div>
+    <script src="/resources/js/DVM.js"></script>
     <script src="/resources/js/window_16.js"></script>
 </body>
 </html>
