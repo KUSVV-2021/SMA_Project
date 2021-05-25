@@ -35,7 +35,7 @@ public class Item {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://localhost:8080/MainProject/drink/addNewDrink");
+        obj = new URL("http://3.35.83.31:9090/drink/addNewDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
