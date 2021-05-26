@@ -4,6 +4,6 @@ if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") =
 
 const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
-window.onkeydown = function (e) {
-    if ( e.code == 'Enter' ) dvm.moveTo2();
-}
+setTimeout(function () {
+    dvm.moveTo2();
+} , 3000);
