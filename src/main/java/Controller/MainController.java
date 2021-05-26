@@ -75,4 +75,10 @@ public class MainController {
         model.addAttribute("Price", Price);
         return "main/payment";
     }
+    @RequestMapping(value = "/unit-test")
+    public String unitTest(Model model) {
+        model.addAttribute("Title", "unit-test");
+        dvm = DVM.getInstance();
+        return "main/unit_test";
+    }
 }
