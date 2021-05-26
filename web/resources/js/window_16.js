@@ -81,7 +81,8 @@ function changeStock() {
         || ( document.getElementById("left").value == "" )             //잔고가 비어있는 경우
         || (document.getElementById("price").value*1 > 50000)    //가격이 5만원을 초과한 경우
         || (document.getElementById("price").value*1 < 1)
-        || (document.getElementById("left").value*1 < 1)) {
+        || (document.getElementById("left").value*1 < 1)
+        || (document.getElementById("left").value*1 > 100)) {
         alert("잘못된 입력입니다.");
         return;
     }

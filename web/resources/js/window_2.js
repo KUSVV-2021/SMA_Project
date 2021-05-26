@@ -17,6 +17,10 @@ $('.menu_ui .drink').click( function () {
     if (str == "") {
         return;
     }
+    chooseItem(str);
+} );
+
+function chooseItem(str) {
     let o = null;
     let obj = dvm.getItemList();
     for ( let i = 0; i < obj.length; i++ ) {
@@ -41,7 +45,7 @@ $('.menu_ui .drink').click( function () {
     } else {
         location.href = "/window2/getDrinkInfoFromOtherDVM?D_NAME="+str+"&INDEX="+dvm.getDVMId();
     }
-} );
+}
 
 window.onload = function () {
     var item = document.getElementById("Data");
