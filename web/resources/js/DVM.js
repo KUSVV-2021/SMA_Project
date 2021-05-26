@@ -11,6 +11,10 @@ class DVM {
         return this.itemList;
     }
 
+    setDVMId(seq) {
+        this.seq = seq;
+    }
+
     setItemList(itemList) {
         this.itemList = itemList;
     }
@@ -49,7 +53,7 @@ class DVM {
     choosePrepayment() {
         location.href='../window3';
     }   //window-1에서 선결제 코드 인풋박스를 클릭시
-    
+
     openChgMenu(str) {
         location.href = '../window16?Drink=' + str;
     }   //window-12에서 음료 클릭

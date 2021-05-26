@@ -158,6 +158,7 @@ function clickCPad(e) {
     } else if ( e.target.innerText == "enter" ) {
         if (inputc*1 > 0 && inputc*1 <=10) {
             localStorage.setItem("IDX_DVM", inputc);
+            dvm.setDVMId(inputc);
             alert("변경된 dvm 번호는 "+inputc+"입니다.");
             const div = document.getElementsByClassName("c_key_pad")[0];
             div.remove();
