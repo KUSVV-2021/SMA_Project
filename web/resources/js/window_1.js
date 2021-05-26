@@ -87,7 +87,7 @@ function clickPad(e) {
         input = input.slice(0, -1)
     } else if ( e.target.innerText == "enter" ) {
         if (input == "1234") {
-            location.href="../window12?INDEX="+dvm.getDVMId();
+            dvm.backToPage(12);
         } else {
             alert("잘못된 입력입니다.");
         }
