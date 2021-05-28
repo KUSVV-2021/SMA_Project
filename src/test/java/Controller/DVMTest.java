@@ -22,7 +22,7 @@ public class DVMTest {
     }        //getDrinkList
 
     int bdi = 1, bdj = 1;
-    @RepeatedTest(100)
+    @RepeatedTest(150)
     void buyDrink() throws IOException {
         assertFalse(DVM.buyDrink(bdi, bdj).contains("HTTP Status 500 – Internal Server Error"));
         if ( bdi%20 == 0 ) {
@@ -32,7 +32,7 @@ public class DVMTest {
     }
 
     int gdifodi = 1;
-    @RepeatedTest(10)
+    @RepeatedTest(20)
     void getDrinkInfoFromOtherDVM() throws IOException, ParseException {
         Random random = new Random();
         float lng = 3+(random.nextFloat()*3);

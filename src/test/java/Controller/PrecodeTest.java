@@ -20,13 +20,13 @@ public class PrecodeTest {
     }
 
     int i = 0;
-    @RepeatedTest(10)
+    @RepeatedTest(20)
     void answerPrecodeInfoTest() throws IOException {
         assertFalse(Precode.answerPrecodeInfo(i++, "").contains("HTTP Status 500 – Internal Server Error"));
     }
 
     int gpi = 1;
-    @RepeatedTest(10)
+    @RepeatedTest(20)
     void getPrecodeTest() throws IOException, ParseException {
         assertFalse(Precode.getPrecode(gpi++, "").contains("HTTP Status 500 – Internal Server Error"));
     }

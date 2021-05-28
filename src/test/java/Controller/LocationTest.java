@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LocationTest {
 
     int i = 0;
-    @RepeatedTest(10)
+    @RepeatedTest(20)
     void getDrinkListTest() throws IOException, ParseException {
         assertNotNull(Location.getLocationInfo(i++));
     }
