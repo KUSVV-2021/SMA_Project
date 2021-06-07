@@ -5,5 +5,5 @@ if (localStorage.getItem("IDX_DVM") == null || localStorage.getItem("IDX_DVM") =
 const dvm = new DVM(localStorage.getItem("IDX_DVM") * 1, null);
 
 setTimeout(function () {
-    dvm.moveTo2();
+    dvm.moveTo1();
 } , 3000);

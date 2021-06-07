@@ -70,4 +70,8 @@ class DVM {
         location.href = '../window16/changeStock?INDEX='+this.seq+'&D_NAME='+name+
             '&PRICE='+price+'&STOCK='+stock;
     }
+
+    moveTo1(){
+        location.href='../window1';
+    }
 }
