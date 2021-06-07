@@ -4,10 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Random;
-
-import static java.lang.Math.abs;
-
 @Controller
 public class MainController {
     public static DVM dvm;
