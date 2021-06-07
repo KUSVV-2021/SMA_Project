@@ -12,11 +12,12 @@ import java.util.logging.Logger;
 
 public class Item {
     static Logger log = Logger.getLogger(Item.class.getName());
+    static final int priceMax = 50000;
 
     static String addItemlist(String NAME, int PRICE, int INDEX) throws IOException {
-        if (PRICE > 50000) {
+        if (PRICE > priceMax) {
             log.info("price is out of range : change price to 50000");
-            PRICE = 50000;
+            PRICE = priceMax;
         }
 
         Map<String, Object> params = new HashMap<String, Object>();
