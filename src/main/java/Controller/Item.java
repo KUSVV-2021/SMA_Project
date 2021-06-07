@@ -46,7 +46,7 @@ public class Item {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
@@ -85,7 +85,7 @@ public class Item {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
@@ -121,7 +121,7 @@ public class Item {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
