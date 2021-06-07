@@ -16,11 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DVM {
-    private static DVM dvm = null;
+    private static DVM dvm;
     private static String itemList;
     private static int seq;
 
     private DVM(){
+        dvm = null;
         itemList = "";       //reset DrinkList
     }
 
