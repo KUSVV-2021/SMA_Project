@@ -41,7 +41,6 @@ public class DVM {
 
     static String getDrinkList(int INDEX) throws IOException {
         if ( INDEX < 1 ) return "";
-        URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
@@ -55,7 +54,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/getDrinkList");
+        URL obj = new URL("http://3.35.83.31:9090/drink/getDrinkList");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -66,7 +65,7 @@ public class DVM {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
@@ -76,8 +75,6 @@ public class DVM {
     }
 
     static String buyDrink(int SEQ, int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("D_SEQ", SEQ);
@@ -91,7 +88,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/buyDrink");
+        URL obj = new URL("http://3.35.83.31:9090/drink/buyDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -102,7 +99,7 @@ public class DVM {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
@@ -111,7 +108,7 @@ public class DVM {
         return response.toString();
     }
 
-    static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException, ParseException {
+    static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException {
         String result = getOtherDVMObject(D_NAME, INDEX);
         JSONParser parser = new JSONParser();
         Object o;
@@ -132,8 +129,6 @@ public class DVM {
     }
 
     private static String getOtherDVMObject(String D_NAME, int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("D_NAME", D_NAME);
@@ -147,7 +142,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/getDrinkInfoFromOtherDVM");
+        URL obj = new URL("http://3.35.83.31:9090/drink/getDrinkInfoFromOtherDVM");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -158,7 +153,7 @@ public class DVM {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
@@ -172,7 +167,8 @@ public class DVM {
         float min = 100000;
         for ( Object o1 : ja) {
             JSONObject jo = (JSONObject) o1;
-            float m = Math.abs(Float.parseFloat(jo.get("LONGITUDE").toString())-lng)+Math.abs(Float.parseFloat(jo.get("LATITUDE").toString())-lat);
+            float m = Math.abs(Float.parseFloat(jo.get("LONGITUDE").toString())-lng)
+                    + Math.abs(Float.parseFloat(jo.get("LATITUDE").toString())-lat);
             if (m < min) {
                 min = m;
                 index = jo;

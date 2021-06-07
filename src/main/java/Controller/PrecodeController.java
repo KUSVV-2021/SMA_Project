@@ -11,7 +11,8 @@ import java.io.IOException;
 public class PrecodeController {
 
     @RequestMapping(value = "/window6")
-    public String getPrecode(Model model, int INDEX, String D_NAME, float LO, float LA) throws IOException, ParseException {
+    public String getPrecode(Model model, int INDEX, String D_NAME, float LO, float LA)
+            throws IOException, ParseException {
         model.addAttribute(Attribute.title, "Window-6");
         Precode precode = Precode.getInstance();
         precode.setDvmIndex(INDEX);

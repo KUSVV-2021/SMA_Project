@@ -11,8 +11,6 @@ import java.util.Map;
 
 public class Payment {
     static String getPaymentList(int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
 
@@ -25,7 +23,7 @@ public class Payment {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/admin/getSellRecord");
+        URL obj = new URL("http://3.35.83.31:9090/admin/getSellRecord");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -36,7 +34,7 @@ public class Payment {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while((inputLine = in.readLine()) != null){
             response.append(inputLine);
         }
