@@ -123,10 +123,16 @@ public class DVM {
         JSONArray ja = (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
 
         JSONObject index = calculateDistance(ja, lng, lat);
-        if (index != null)
-            index.put("D_NAME", D_NAME);
 
-        return index!=null?index.toString():"";
+        String returnV = "";
+        if (index != null) {
+            index.put("D_NAME", D_NAME);
+            returnV = index.toString();
+        }
+        else
+            returnV = "";
+
+        return returnV;
     }
 
     private static String getOtherDVMObject(String D_NAME, int INDEX) throws IOException {
