@@ -46,7 +46,13 @@ public class DVMController {
         model.addAttribute(Attribute.data, DVM.getDrinkList(INDEX));
         JSONObject jo = Location.getLocationInfo(INDEX);
         try {
-            model.addAttribute(Attribute.other, DVM.getDrinkInfoFromOtherDVM(D_NAME, INDEX, Float.parseFloat(((JSONObject)jo.get("R")).get("LONGITUDE").toString()), Float.parseFloat(((JSONObject)jo.get("R")).get("LATITUDE").toString())));
+            model.addAttribute(Attribute.other,
+                    DVM.getDrinkInfoFromOtherDVM(
+                            D_NAME, INDEX,
+                            Float.parseFloat(((JSONObject)jo.get("R")).get("LONGITUDE").toString()),
+                            Float.parseFloat(((JSONObject)jo.get("R")).get("LATITUDE").toString())
+                    )
+            );
         } catch (Exception e) {
             model.addAttribute(Attribute.other, "<result='2'>");
         }

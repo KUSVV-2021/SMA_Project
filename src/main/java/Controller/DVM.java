@@ -108,7 +108,7 @@ public class DVM {
         return response.toString();
     }
 
-    static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException, ParseException {
+    static String getDrinkInfoFromOtherDVM(String D_NAME, int INDEX, float lng, float lat) throws IOException {
         String result = getOtherDVMObject(D_NAME, INDEX);
         JSONParser parser = new JSONParser();
         Object o;
@@ -167,7 +167,8 @@ public class DVM {
         float min = 100000;
         for ( Object o1 : ja) {
             JSONObject jo = (JSONObject) o1;
-            float m = Math.abs(Float.parseFloat(jo.get("LONGITUDE").toString())-lng)+Math.abs(Float.parseFloat(jo.get("LATITUDE").toString())-lat);
+            float m = Math.abs(Float.parseFloat(jo.get("LONGITUDE").toString())-lng)
+                    + Math.abs(Float.parseFloat(jo.get("LATITUDE").toString())-lat);
             if (m < min) {
                 min = m;
                 index = jo;
