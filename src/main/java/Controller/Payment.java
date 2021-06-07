@@ -40,6 +40,6 @@ public class Payment {
         }
         in.close();
 
-        return  response.toString();
+        return response.toString();
     }
 }

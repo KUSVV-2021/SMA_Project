@@ -79,7 +79,7 @@ public class Precode {
         }
         in.close();
 
-        return  response.toString();
+        return response.toString();
     }
 
     static String getPrecode(int INDEX, String D_NAME) throws IOException, ParseException {
@@ -121,7 +121,7 @@ public class Precode {
             return "";
         }
         JSONObject jsonObj = (JSONObject) o;
-        return  ((JSONObject)jsonObj.get("R")).get("code").toString();
+        return ((JSONObject)jsonObj.get("R")).get("code").toString();
     }
 
 }

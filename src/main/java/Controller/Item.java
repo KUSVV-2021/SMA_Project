@@ -88,7 +88,7 @@ public class Item {
         }
         in.close();
 
-        return  response.toString();
+        return response.toString();
     }
 
     static String removeItemlist(String NAME, int INDEX) throws IOException {
@@ -122,7 +122,7 @@ public class Item {
         }
         in.close();
 
-        return  response.toString();
+        return response.toString();
     }
 
 }
