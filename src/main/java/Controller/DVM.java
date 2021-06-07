@@ -22,7 +22,7 @@ public class DVM {
 
     private DVM(){
         dvm = null;
-        itemList = "";       //reset DrinkList
+        itemList = "";
     }
 
     public static DVM getInstance() {
