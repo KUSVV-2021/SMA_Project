@@ -16,12 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DVM {
-    private static DVM dvm = null;
+    private static DVM dvm;
     private static String itemList;
     private static int seq;
 
     private DVM(){
-        itemList = "";       //reset DrinkList
+        dvm = null;
+        itemList = "";
     }
 
     public static DVM getInstance() {
@@ -122,10 +123,16 @@ public class DVM {
         JSONArray ja = (JSONArray) ((JSONObject)jsonObj.get("R")).get("list");
 
         JSONObject index = calculateDistance(ja, lng, lat);
-        if (index != null)
-            index.put("D_NAME", D_NAME);
 
-        return index!=null?index.toString():"";
+        String returnV = "";
+        if (index != null) {
+            index.put("D_NAME", D_NAME);
+            returnV = index.toString();
+        }
+        else
+            returnV = "";
+
+        return returnV;
     }
 
     private static String getOtherDVMObject(String D_NAME, int INDEX) throws IOException {
