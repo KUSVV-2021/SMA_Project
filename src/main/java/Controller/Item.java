@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 public class Item {
-    static Logger log = Logger.getLogger(Item.class.getName());
+    private static Logger log = Logger.getLogger(Item.class.getName());
     static final int priceMax = 50000;
 
     static String addItemlist(String NAME, int PRICE, int INDEX) throws IOException {
