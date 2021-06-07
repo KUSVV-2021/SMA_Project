@@ -19,8 +19,6 @@ public class Item {
             PRICE = 50000;
         }
 
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("D_NAME", NAME);
         params.put("D_PRICE", PRICE);
@@ -35,7 +33,7 @@ public class Item {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/addNewDrink");
+        URL obj = new URL("http://3.35.83.31:9090/drink/addNewDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -57,8 +55,6 @@ public class Item {
 
 
     static String changeStock(String NAME, int INDEX, int PRICE, int STOCK) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("D_NAME", NAME);
         params.put("INDEX", INDEX);
@@ -74,7 +70,7 @@ public class Item {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/admin/changeDrink");
+        URL obj = new URL("http://3.35.83.31:9090/admin/changeDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -95,8 +91,6 @@ public class Item {
     }
 
     static String removeItemlist(String NAME, int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("D_NAME", NAME);
         params.put("INDEX", INDEX);
@@ -110,7 +104,7 @@ public class Item {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/admin/removeDrink");
+        URL obj = new URL("http://3.35.83.31:9090/admin/removeDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

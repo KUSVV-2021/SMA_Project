@@ -41,7 +41,6 @@ public class DVM {
 
     static String getDrinkList(int INDEX) throws IOException {
         if ( INDEX < 1 ) return "";
-        URL obj = null;
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
@@ -55,7 +54,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/getDrinkList");
+        URL obj = new URL("http://3.35.83.31:9090/drink/getDrinkList");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -76,8 +75,6 @@ public class DVM {
     }
 
     static String buyDrink(int SEQ, int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("D_SEQ", SEQ);
@@ -91,7 +88,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/buyDrink");
+        URL obj = new URL("http://3.35.83.31:9090/drink/buyDrink");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -132,8 +129,6 @@ public class DVM {
     }
 
     private static String getOtherDVMObject(String D_NAME, int INDEX) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("D_NAME", D_NAME);
@@ -147,7 +142,7 @@ public class DVM {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/getDrinkInfoFromOtherDVM");
+        URL obj = new URL("http://3.35.83.31:9090/drink/getDrinkInfoFromOtherDVM");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

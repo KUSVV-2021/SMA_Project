@@ -49,8 +49,6 @@ public class Precode {
 
 
     static String answerPrecodeInfo(int INDEX, String CODE) throws IOException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("CODE", CODE);
@@ -64,7 +62,7 @@ public class Precode {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/answerPrecodeInfo");
+        URL obj = new URL("http://3.35.83.31:9090/drink/answerPrecodeInfo");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
@@ -85,8 +83,6 @@ public class Precode {
     }
 
     static String getPrecode(int INDEX, String D_NAME) throws IOException, ParseException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", INDEX);
         params.put("D_NAME", D_NAME);
@@ -100,7 +96,7 @@ public class Precode {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/inputPC");
+        URL obj = new URL("http://3.35.83.31:9090/drink/inputPC");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");

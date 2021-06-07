@@ -15,8 +15,6 @@ import java.util.Map;
 
 public class Location {
     static JSONObject getLocationInfo(int index) throws IOException, ParseException {
-        URL obj = null;
-
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("INDEX", index);
 
@@ -29,7 +27,7 @@ public class Location {
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
-        obj = new URL("http://3.35.83.31:9090/drink/getLocationInfo");
+        URL obj = new URL("http://3.35.83.31:9090/drink/getLocationInfo");
 
         HttpURLConnection con = (HttpURLConnection)obj.openConnection();
         con.setRequestMethod("POST");
